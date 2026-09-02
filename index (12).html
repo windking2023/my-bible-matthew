@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>나의 성경 — Matthew 1–7 · Greek-based Translation</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Noto+Sans:wght@400;600&family=Noto+Sans+KR:wght@400;600&display=swap');
+:root{
+  --bg:#faf9f6;--card:#fff;--text:#171717;--muted:#696969;--line:#e7e2d9;
+  --noun:#1565c0;--verb:#c62828;--life:#2e7d32;--scale:1
+}
+body.dark{--bg:#111;--card:#1b1b1b;--text:#f5f5f5;--muted:#b7b7b7;--line:#303030}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+header{position:sticky;top:0;z-index:8;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top{max-width:840px;margin:auto;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:.76rem;letter-spacing:.12em;color:var(--muted)}
+h1{font-size:1.3rem;margin:2px 0}
+button{background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:8px 11px;cursor:pointer}
+.chapterbar{max-width:840px;margin:auto;padding:0 14px 10px;display:flex;gap:7px;overflow:auto}
+.chapter-btn.active{font-weight:750;border-color:var(--text)} #chapterSpeak{margin-right:4px}
+main{max-width:840px;margin:auto;padding:14px}
+.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:.9rem;padding:3px 0 12px}
+.legend{display:flex;gap:13px;flex-wrap:wrap;font-size:.82rem;color:var(--muted);margin:0 0 14px}
+.legend b:nth-child(1){color:var(--noun)} .legend b:nth-child(2){color:var(--verb)} .legend b:nth-child(3){color:var(--life)}
+.verse{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
+.num{font-size:.78rem;color:var(--muted);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.verse-speak{font-size:.82rem;padding:5px 9px;border-radius:999px}
+.greek{font-family:"Palatino Linotype","Book Antiqua","Times New Roman","Segoe UI Historic",serif;font-size:calc(1.56rem * var(--scale));font-weight:600;line-height:1.62;letter-spacing:0}
+.greek .word{cursor:pointer;border-radius:4px;padding:0 .02em}
+.greek .noun{color:var(--noun);font-weight:700}
+.greek .verb{color:var(--verb);font-weight:700}
+.greek .life{color:var(--life)!important;font-weight:750}
+.pron{font-family:"Nanum Gothic","Malgun Gothic",sans-serif;font-size:calc(0.92rem * var(--scale));font-weight:400;line-height:1.5;margin-top:5px;color:var(--muted)}
+.ko{font-family:"Source Han Sans K","본고딕","Noto Sans KR","Malgun Gothic",sans-serif;font-size:calc(1.05rem * var(--scale));font-weight:400;line-height:1.65;margin-top:6px}
+.version-label{font-size:.72rem;letter-spacing:.06em;font-weight:800;color:var(--muted);margin-top:10px;text-transform:uppercase}.krv{font-family:"Source Han Sans K","본고딕","Noto Sans KR","Malgun Gothic",sans-serif;font-size:calc(.98rem * var(--scale));line-height:1.65;margin-top:3px;padding:9px 11px;border-left:3px solid var(--line);background:color-mix(in srgb,var(--card) 92%,var(--bg));border-radius:7px}.darby{font-family:"Noto Sans",sans-serif;font-size:calc(.96rem * var(--scale));line-height:1.6;margin-top:3px;padding:9px 11px;border-left:3px solid var(--line);background:color-mix(in srgb,var(--card) 92%,var(--bg));border-radius:7px}.en{font-family:"Noto Sans","Noto Sans KR",sans-serif;font-size:calc(1rem * var(--scale));line-height:1.55;color:var(--text);font-weight:600;font-style:normal;margin-top:4px}
+.eng-key{color:#2563eb;font-weight:800}.eng-alt{color:#111;font-family:"Noto Sans","Arial",sans-serif;font-weight:700;font-style:normal}
+.hide-ko .pron,.hide-ko .ko{font-family:"Source Han Sans K","본고딕","Noto Sans KR","Malgun Gothic",sans-serif;font-size:calc(1.05rem * var(--scale));font-weight:400;line-height:1.65;margin-top:6px}.hide-en .version-label{font-size:.72rem;letter-spacing:.06em;font-weight:800;color:var(--muted);margin-top:10px;text-transform:uppercase}.krv{font-family:"Source Han Sans K","본고딕","Noto Sans KR","Malgun Gothic",sans-serif;font-size:calc(.98rem * var(--scale));line-height:1.65;margin-top:3px;padding:9px 11px;border-left:3px solid var(--line);background:color-mix(in srgb,var(--card) 92%,var(--bg));border-radius:7px}.darby{font-family:"Noto Sans",sans-serif;font-size:calc(.96rem * var(--scale));line-height:1.6;margin-top:3px;padding:9px 11px;border-left:3px solid var(--line);background:color-mix(in srgb,var(--card) 92%,var(--bg));border-radius:7px}.en{font-family:"Noto Sans","Noto Sans KR",sans-serif;font-size:calc(1rem * var(--scale));line-height:1.55;color:var(--text);font-weight:600;font-style:normal;margin-top:4px}
+.loading,.error{padding:28px;text-align:center;color:var(--muted)}
+.variant{border-style:dashed;background:color-mix(in srgb,var(--card) 92%,#f3e5ab 8%)}
+.variant-label{display:inline-block;font-size:.76rem;font-weight:700;padding:4px 8px;border-radius:999px;background:#fff3cd;color:#7a5a00;border:1px solid #ead58c;margin-bottom:9px}
+.variant-note{font-size:.92rem;line-height:1.6;color:var(--muted);margin-top:7px}
+
+.source{font-size:.76rem;line-height:1.5;color:var(--muted);text-align:center;padding:10px 8px 26px}
+#popup{position:fixed;inset:0;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.30);z-index:30}
+#popup.show{display:flex}
+.popup-card{width:min(740px,100%);background:var(--card);border:1px solid var(--line);border-radius:18px 18px 0 0;padding:20px;box-shadow:0 -10px 34px rgba(0,0,0,.2)}
+.popup-greek{font-family:"Palatino Linotype","Book Antiqua","Times New Roman",serif;font-size:2rem;font-weight:700}
+.popup-ko{font-family:"Nanum Gothic","Malgun Gothic",sans-serif;font-size:1.08rem;margin-top:5px}
+.popup-line{margin-top:5px;color:var(--muted)}
+.popup-close{float:right}
+.pos-n{color:var(--noun);font-weight:700}.pos-v{color:var(--verb);font-weight:700}.pos-life{color:var(--life);font-weight:700}
+@media(max-width:520px){.verse{padding:15px}.controls{font-size:.83rem}.greek{line-height:1.58}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div><div class="eyebrow">ΚΑΤΑ ΜΑΤΘΑΙΟΝ</div><h1 id="title">Matthew 1</h1></div>
+    <button onclick="document.body.classList.toggle('dark')" aria-label="dark mode">◐</button>
+  </div>
+  <div class="chapterbar"><button id="chapterSpeak" class="chapter-btn" onclick="speakChapter()">🔊 Read chapter</button><button id="pauseSpeak" class="chapter-btn" onclick="toggleSpeechPause()">⏸ Pause</button>
+    <button class="chapter-btn active" data-ch="1" onclick="showChapter(1)">Matthew 1</button>
+    <button class="chapter-btn" data-ch="2" onclick="showChapter(2)">Matthew 2</button>
+    <button class="chapter-btn" data-ch="3" onclick="showChapter(3)">Matthew 3</button>
+    <button class="chapter-btn" data-ch="4" onclick="showChapter(4)">Matthew 4</button>
+    <button class="chapter-btn" data-ch="5" onclick="showChapter(5)">Matthew 5</button>
+    <button class="chapter-btn" data-ch="6" onclick="showChapter(6)">Matthew 6</button>
+    <button class="chapter-btn" data-ch="7" onclick="showChapter(7)">Matthew 7</button>
+</div>
+</header>
+<main>
+  <div class="controls">
+    <label><input type="checkbox" checked onchange="document.body.classList.toggle('hide-ko',!this.checked)"> 한글/한국어</label>
+    <label><input type="checkbox" checked onchange="document.body.classList.toggle('hide-en',!this.checked)"> English</label>
+    <label>글자 <input type="range" min="90" max="150" value="100" oninput="document.documentElement.style.setProperty('--scale',this.value/100)"></label>
+  </div>
+  <div class="legend"><span><b>■ 명사</b> 파랑</span><span><b>■ 동사</b> 빨강</span><span><b>■ 생명 계열</b> 녹색 우선</span></div>
+  <div id="reader"><div class="loading">Matthew 1을 불러오는 중…</div></div>
+  <div class="source">Greek morphology/text: MorphGNT SBLGNT · Korean pronunciation: traditional Bible-study approximation · Dictionary transliteration: English/Romanized · Korean study translation: 나의 성경 원문 직역 · Korean comparison: 개역한글 (loaded at runtime) · English study rendering: My Bible — Greek-based Translation with Greek lexical study aids · English comparison: Darby Translation (public domain, loaded at runtime)<br>색상: Noun=Blue · Verb=Red · ζωή/ζάω 계열=Green priority<br>Strong’s mapping: greek-lemma-mappings (CC BY-SA 4.0) · Strong’s Greek Dictionary XML (CC0)</div>
+</main>
+
+<div id="popup" onclick="if(event.target===this)closePopup()">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">Close</button>
+    <div id="pgreek" class="popup-greek"></div>
+    <div id="pko" class="popup-ko"></div>
+    <div id="penglish" class="popup-line"></div>
+    <div id="ppos" class="popup-line"></div>
+    <div id="pparse" class="popup-line"></div>
+    <div id="plemma" class="popup-line"></div><div id="pstrong" class="popup-line"><b>Strong’s:</b> <span id="pstrongnum">loading…</span></div><div id="pstrongdef" class="popup-line"></div><div id="pcontext" class="popup-line"></div><div id="prenderings" class="popup-line"></div>
+    <button style="margin-top:12px" onclick="speakGreekWord()">🔊 Pronounce word</button>
+  </div>
+</div>
+
+<script>
+const MORPH_URL='https://raw.githubusercontent.com/morphgnt/sblgnt/master/61-Mt-morphgnt.txt';
+const KRV_URL='https://raw.githubusercontent.com/yuhwan/Bible-krv/master/%EB%A7%88%ED%83%9C%EB%B3%B5%EC%9D%8C.json';
+const DARBY_API='https://dailybible.ca/api/';
+let krvBookCache=null;
+
+const STRONG_MAP_URL='https://raw.githubusercontent.com/jtauber/greek-lemma-mappings/master/strongs_mapping.yaml';
+const STRONG_XML_URL='https://raw.githubusercontent.com/morphgnt/strongs-dictionary-xml/master/strongsgreek.xml';
+let strongLemmaMap=null,strongXmlDoc=null;
+function lemmaKey(x){return stripGreekMarks(x).replace(/\s+/g,'').toLowerCase()}
+async function loadStrongMap(){
+ if(strongLemmaMap)return strongLemmaMap;
+ const txt=await fetch(STRONG_MAP_URL).then(r=>{if(!r.ok)throw Error('Strong map');return r.text()});
+ const m=new Map(); let num='';
+ for(const line of txt.split(/\r?\n/)){
+   let a=line.match(/^(\d+):\s*$/); if(a){num=a[1];continue}
+   let b=line.match(/^\s*-\s*(.+?)\s*$/); if(b&&num)m.set(lemmaKey(b[1]),num);
+ }
+ strongLemmaMap=m;return m;
+}
+async function strongNumber(lemma){
+ const m=await loadStrongMap();return m.get(lemmaKey(lemma))||'';
+}
+async function loadStrongXml(){
+ if(strongXmlDoc)return strongXmlDoc;
+ const txt=await fetch(STRONG_XML_URL).then(r=>{if(!r.ok)throw Error('Strong dictionary');return r.text()});
+ strongXmlDoc=new DOMParser().parseFromString(txt,'application/xml');return strongXmlDoc;
+}
+async function strongEntry(num){
+ if(!num)return null;
+ const doc=await loadStrongXml();
+ const key=String(num).padStart(5,'0');
+ const entry=[...doc.getElementsByTagName('entry')].find(e=>e.getAttribute('strongs')===key);
+ if(!entry)return null;
+ const def=entry.getElementsByTagName('strongs_def')[0]?.textContent?.replace(/\s+/g,' ').trim()||'';
+ const kjv=entry.getElementsByTagName('kjv_def')[0]?.textContent?.replace(/\s+/g,' ').trim()||'';
+ const pron=entry.getElementsByTagName('pronunciation')[0]?.getAttribute('strongs')||'';
+ return {def,kjv,pron};
+}
+async function fillStrong(lemma){
+ const numEl=document.getElementById('pstrongnum'),defEl=document.getElementById('pstrongdef');
+ numEl.textContent='loading…';defEl.textContent='';document.getElementById('pcontext').textContent='';document.getElementById('prenderings').textContent='';
+ try{
+   const num=await strongNumber(lemma);
+   if(!num){numEl.textContent='—';showLexicalContext(lemma,'');return}
+   numEl.textContent='G'+num;
+   const e=await strongEntry(num);
+   if(e){
+     const cleaned=cleanStrongDef(e.def||'');
+     defEl.innerHTML='<b>Basic meaning:</b><br>'+escapeHtml(cleaned||'—');
+     showLexicalContext(lemma,cleaned);
+   }
+ }catch(err){numEl.textContent='unavailable';showLexicalContext(lemma,'')}
+}
+
+const LIFE_LEMMAS=new Set(['ζωή','ζάω','ζωοποιέω']);
+const KOREAN={"1":{"1":"예수 그리스도의 계보의 책이다. 그분은 다윗의 아들이시며 아브라함의 아들이시다.","2":"아브라함은 이삭을 낳았고, 이삭은 야곱을 낳았으며, 야곱은 유다와 그의 형제들을 낳았다.","3":"유다는 다말에게서 베레스와 세라를 낳았고, 베레스는 헤스론을 낳았으며, 헤스론은 아람을 낳았다.","4":"아람은 아미나답을 낳았고, 아미나답은 나손을 낳았으며, 나손은 살몬을 낳았다.","5":"살몬은 라합에게서 보아스를 낳았고, 보아스는 룻에게서 오벳을 낳았으며, 오벳은 이새를 낳았다.","6":"이새는 다윗 왕을 낳았다. 다윗은 우리아의 아내였던 여자에게서 솔로몬을 낳았고,","7":"솔로몬은 르호보암을 낳았고, 르호보암은 아비야를 낳았으며, 아비야는 아삽을 낳았다.","8":"아삽은 여호사밧을 낳았고, 여호사밧은 요람을 낳았으며, 요람은 웃시야를 낳았다.","9":"웃시야는 요담을 낳았고, 요담은 아하스를 낳았으며, 아하스는 히스기야를 낳았다.","10":"히스기야는 므낫세를 낳았고, 므낫세는 아모스를 낳았으며, 아모스는 요시야를 낳았다.","11":"요시야는 바빌론으로 이주되던 때에 여고냐와 그의 형제들을 낳았다.","12":"바빌론으로 이주된 후에 여고냐는 스알디엘을 낳았고, 스알디엘은 스룹바벨을 낳았다.","13":"스룹바벨은 아비훗을 낳았고, 아비훗은 엘리아김을 낳았으며, 엘리아김은 아소르를 낳았다.","14":"아소르는 사독을 낳았고, 사독은 아킴을 낳았으며, 아킴은 엘리웃을 낳았다.","15":"엘리웃은 엘르아살을 낳았고, 엘르아살은 맛단을 낳았으며, 맛단은 야곱을 낳았다.","16":"야곱은 마리아의 남편 요셉을 낳았고, 마리아에게서 그리스도라고 불리시는 예수님께서 태어나셨다.","17":"그러므로 아브라함부터 다윗까지 모든 세대가 열네 세대이고, 다윗부터 바빌론 이주까지 열네 세대이며, 바빌론 이주부터 그리스도까지 열네 세대이다.","18":"예수 그리스도의 나심은 이러하였다. 그분의 어머니 마리아가 요셉과 약혼하였는데, 두 사람이 함께 살기 전에 마리아가 성령으로 말미암아 잉태한 것이 드러났다.","19":"그의 남편 요셉은 의로운 사람이었고 마리아를 공개적으로 수치스럽게 만들고 싶지 않았으므로 조용히 파혼하려고 하였다.","20":"그가 이 일을 생각하고 있을 때, 보아라, 주님의 천사가 꿈에 그에게 나타나 말했다. “다윗의 아들 요셉아, 네 아내 마리아를 데려오는 것을 두려워하지 마라. 그 여자 안에 잉태된 것은 성령으로 말미암은 것이다.","21":"마리아가 아들을 낳을 것이니 그 이름을 예수라고 하여라. 그분께서 자기 백성을 그들의 죄들에서 구원하실 것이기 때문이다.”","22":"이 모든 일이 일어난 것은 주님께서 신언자를 통하여 하신 말씀이 이루어지게 하려는 것이었다.","23":"“보아라, 처녀가 잉태하여 아들을 낳을 것이며, 사람들이 그의 이름을 임마누엘이라고 부를 것이다.” 임마누엘은 번역하면 “하나님께서 우리와 함께 계신다”라는 뜻이다.","24":"요셉은 잠에서 깨어 주님의 천사가 명령한 대로 행하여 자기 아내를 데려왔다.","25":"그러나 마리아가 아들을 낳을 때까지 그 여자와 관계를 갖지 않았고, 그 아들의 이름을 예수라고 하였다."},"2":{"1":"헤롯 왕 시대에 예수님께서 유대의 베들레헴에서 태어나신 뒤, 보아라, 동방에서 박사들이 예루살렘에 와서","2":"말했다. “유대인의 왕으로 태어나신 분이 어디에 계십니까? 우리가 동방에서 그분의 별을 보고 그분께 경배하러 왔습니다.”","3":"헤롯 왕이 이 말을 듣고 당황하였고, 온 예루살렘도 그와 함께 당황하였다.","4":"헤롯은 백성의 모든 대제사장들과 율법학자들을 모아 놓고 그리스도께서 어디에서 태어나실 것인지 물었다.","5":"그들이 헤롯에게 말했다. “유대의 베들레헴입니다. 신언자를 통하여 이렇게 기록되어 있기 때문입니다.","6":"‘유다 땅 베들레헴아, 너는 유다의 지도자들 가운데 결코 가장 작은 곳이 아니다. 너에게서 한 통치자가 나와 내 백성 이스라엘을 목양할 것이기 때문이다.’”","7":"그때 헤롯은 박사들을 몰래 불러 별이 나타난 때를 그들에게 정확히 알아보았다.","8":"그리고 그들을 베들레헴으로 보내며 말했다. “가서 그 아기에 관하여 자세히 알아보고, 찾거든 나에게 알려 주시오. 나도 가서 그에게 경배하려 하오.”","9":"그들은 왕의 말을 듣고 떠났다. 그런데 보아라, 그들이 동방에서 보았던 별이 그들보다 앞서 가다가 아기가 있는 곳 위에 이르러 멈추었다.","10":"그들은 그 별을 보고 매우 크게 기뻐하였다.","11":"집 안으로 들어가 아기가 그의 어머니 마리아와 함께 있는 것을 보고 엎드려 그분께 경배하였다. 그리고 보물함을 열어 금과 유향과 몰약을 예물로 드렸다.","12":"그들은 꿈에 헤롯에게로 돌아가지 말라는 하나님의 지시를 받고 다른 길로 자기 나라로 돌아갔다.","13":"그들이 떠난 뒤, 보아라, 주님의 천사가 꿈에 요셉에게 나타나 말했다. “일어나 아기와 그의 어머니를 데리고 이집트로 피하여 내가 네게 말할 때까지 거기에 머물러라. 헤롯이 아기를 찾아 죽이려 하기 때문이다.”","14":"요셉은 일어나 밤에 아기와 그의 어머니를 데리고 이집트로 떠나","15":"헤롯이 죽을 때까지 거기에 있었다. 이것은 주님께서 신언자를 통하여 “내가 이집트에서 내 아들을 불러내었다”라고 하신 말씀이 이루어지게 하려는 것이었다.","16":"그때 헤롯은 박사들에게 속은 것을 알고 몹시 분노하여 사람들을 보내, 박사들에게 정확히 알아본 때를 기준으로 베들레헴과 그 모든 주변 지역에 있는 두 살 이하의 사내아이들을 모두 죽였다.","17":"그때 신언자 예레미야를 통하여 하신 말씀이 이루어졌다.","18":"“라마에서 한 소리가 들렸다. 울음과 큰 통곡이었다. 라헬이 자기 자녀들을 위하여 울며 위로받기를 원하지 않았으니, 그들이 없기 때문이다.”","19":"헤롯이 죽은 뒤, 보아라, 주님의 천사가 이집트에서 꿈에 요셉에게 나타나","20":"말했다. “일어나 아기와 그의 어머니를 데리고 이스라엘 땅으로 가거라. 아기의 생명을 찾던 사람들이 죽었기 때문이다.”","21":"요셉은 일어나 아기와 그의 어머니를 데리고 이스라엘 땅으로 들어갔다.","22":"그러나 아켈라오가 그의 아버지 헤롯을 이어 유대를 다스린다는 말을 듣고 그곳으로 가기를 두려워하였다. 꿈에 하나님의 지시를 받고 갈릴리 지역으로 물러가","23":"나사렛이라고 하는 동네에 가서 살았다. 이것은 신언자들을 통하여 “그분은 나사렛 사람이라고 불릴 것이다”라고 하신 말씀이 이루어지게 하려는 것이었다."},"3":{"1":"그 무렵 침례자 요한이 나타나 유대 광야에서 선포하며","2":"말했다. “회개하십시오. 하늘들의 왕국이 가까이 왔습니다.”","3":"이 사람이 바로 신언자 이사야를 통하여 말씀하신 그 사람이다. “광야에서 외치는 이의 소리이다. ‘주님의 길을 준비하여라. 그분의 길들을 곧게 하여라.’”","4":"이 요한은 낙타 털로 된 옷을 입고 허리에 가죽띠를 띠었으며, 그의 음식은 메뚜기와 들꿀이었다.","5":"그때 예루살렘과 온 유대와 요단강 주변의 온 지역이 그에게 나아와","6":"자기들의 죄들을 자백하며 요단강에서 그에게 침례를 받았다.","7":"그러나 많은 바리새인들과 사두개인들이 침례 받으러 오는 것을 보고 요한이 그들에게 말했다. “독사의 자식들이여, 누가 여러분에게 다가오는 진노를 피하라고 경고했습니까?","8":"그러므로 회개에 합당한 열매를 맺으십시오.","9":"그리고 여러분 속으로 ‘우리에게는 아브라함이 아버지로 있다’라고 생각하지 마십시오. 내가 여러분에게 말합니다. 하나님은 이 돌들에서도 아브라함을 위하여 자녀들을 일으키실 수 있습니다.","10":"이미 도끼가 나무들의 뿌리에 놓여 있습니다. 그러므로 좋은 열매를 맺지 않는 나무마다 찍혀 불 속에 던져집니다.","11":"나는 여러분을 회개에 이르게 하려고 물로 침례 줍니다. 그러나 내 뒤에 오시는 분은 나보다 더 강하신 분이시며, 나는 그분의 신발을 들 자격도 없습니다. 그분은 여러분을 성령과 불로 침례 주실 것입니다.","12":"그분의 키가 그분의 손에 있습니다. 그분은 자기 타작마당을 깨끗이 하시고, 밀은 곳간에 모으실 것이지만, 쭉정이는 꺼지지 않는 불로 태우실 것입니다.”","13":"그때 예수님께서 요한에게 침례를 받으시려고 갈릴리에서 요단강으로 요한에게 오셨다.","14":"그러나 요한은 예수님을 말리며 말했다. “제가 주님께 침례를 받아야 하는데, 주님께서 제게 오십니까?”","15":"예수님께서 그에게 대답하셨다. “지금은 허락하십시오. 우리가 이와 같이 모든 의를 이루는 것이 합당합니다.” 그러자 요한이 허락하였다.","16":"예수님께서 침례를 받으시고 곧 물에서 올라오셨다. 그런데 보아라, 하늘들이 그분께 열렸고, 그분은 하나님의 영께서 비둘기처럼 내려와 자기 위에 임하시는 것을 보셨다.","17":"그리고 보아라, 하늘들에서 한 음성이 들렸다. “이분은 내가 사랑하는 나의 아들이다. 내가 이분을 기뻐한다.”"},"4":{"1":"그때 예수님께서 마귀에게 시험을 받으시려고 그 영에 이끌려 광야로 가셨다.","2":"사십 일 밤낮을 금식하신 뒤에 배가 고프셨다.","3":"그 시험하는 자가 다가와 그분께 말했다. “당신이 하나님의 아들이라면 이 돌들에게 빵이 되라고 말해 보십시오.”","4":"그러나 예수님께서 대답하셨다. “기록되어 있다. ‘사람이 빵으로만 살 것이 아니라, 하나님의 입에서 나오는 모든 말씀으로 살 것이다.’”","5":"그때 마귀가 예수님을 거룩한 도시로 데려가 성전 꼭대기에 세우고","6":"그분께 말했다. “당신이 하나님의 아들이라면 아래로 몸을 던져 보십시오. 기록되어 있기 때문입니다. ‘그분께서 당신을 위하여 자기 천사들에게 명령하실 것이고’, 또 ‘그들이 손으로 당신을 받들어 당신의 발이 돌에 부딪히지 않게 할 것이다.’”","7":"예수님께서 그에게 말씀하셨다. “또 기록되어 있다. ‘주 너의 하나님을 시험하지 마라.’”","8":"다시 마귀가 예수님을 매우 높은 산으로 데려가 세상의 모든 왕국들과 그 영광을 보여 주며","9":"그분께 말했다. “당신이 엎드려 나에게 경배한다면 이 모든 것을 당신에게 주겠습니다.”","10":"그때 예수님께서 그에게 말씀하셨다. “사탄아, 물러가라! 기록되어 있다. ‘주 너의 하나님께 경배하고 오직 그분만 섬겨라.’”","11":"그러자 마귀가 예수님을 떠났고, 보아라, 천사들이 다가와 그분을 섬겼다.","12":"예수님께서 요한이 잡혔다는 말을 들으시고 갈릴리로 물러가셨다.","13":"그리고 나사렛을 떠나 스불론과 납달리 지역의 바닷가에 있는 가버나움에 가서 사셨다.","14":"이것은 신언자 이사야를 통하여 하신 말씀이 이루어지게 하려는 것이었다.","15":"“스불론 땅과 납달리 땅, 바다 길, 요단강 건너편, 이방인들의 갈릴리여,","16":"어둠 속에 앉아 있던 백성이 큰 빛을 보았고, 죽음의 땅과 그림자 속에 앉아 있던 사람들에게 빛이 떠올랐다.”","17":"그때부터 예수님께서 선포하기 시작하셨다. “회개하십시오. 하늘들의 왕국이 가까이 왔습니다.”","18":"예수님께서 갈릴리 바닷가를 걸어가시다가 두 형제, 곧 베드로라고 하는 시몬과 그의 형제 안드레가 바다에 그물을 던지는 것을 보셨다. 그들은 어부들이었다.","19":"예수님께서 그들에게 말씀하셨다. “나를 따라오십시오. 내가 여러분을 사람들을 낚는 어부들이 되게 하겠습니다.”","20":"그러자 그들은 즉시 그물들을 버리고 그분을 따랐다.","21":"거기서 더 가시다가 다른 두 형제, 곧 세베대의 아들 야고보와 그의 형제 요한이 자기 아버지 세베대와 함께 배에서 그물들을 손질하는 것을 보시고 그들을 부르셨다.","22":"그들은 즉시 배와 자기 아버지를 남겨 두고 그분을 따랐다.","23":"예수님께서 온 갈릴리를 두루 다니시며 그들의 회당들에서 가르치시고 왕국의 복음을 선포하시며 백성 가운데 있는 모든 질병과 모든 약함을 고치셨다.","24":"그분에 관한 소문이 온 시리아에 퍼졌다. 사람들이 여러 질병과 고통에 시달리는 모든 사람들, 귀신 들린 사람들, 간질하는 사람들, 중풍병자들을 그분께 데려왔고, 그분은 그들을 고쳐 주셨다.","25":"갈릴리와 데가볼리와 예루살렘과 유대와 요단강 건너편에서 온 큰 무리가 그분을 따랐다."},"5":{"1":"예수님께서 무리들을 보시고 산에 올라가 앉으시니 제자들이 그분께 나아왔다.","2":"예수님께서 입을 열어 그들을 가르치며 말씀하셨다.","3":"“영 안에서 가난한 사람들은 복이 있습니다. 하늘들의 왕국이 그들의 것이기 때문입니다.","4":"슬퍼하는 사람들은 복이 있습니다. 그들이 위로를 받을 것이기 때문입니다.","5":"온유한 사람들은 복이 있습니다. 그들이 땅을 상속받을 것이기 때문입니다.","6":"의를 굶주리고 목말라 하는 사람들은 복이 있습니다. 그들이 배부르게 될 것이기 때문입니다.","7":"긍휼히 여기는 사람들은 복이 있습니다. 그들이 긍휼히 여김을 받을 것이기 때문입니다.","8":"마음이 순수한 사람들은 복이 있습니다. 그들이 하나님을 볼 것이기 때문입니다.","9":"화평하게 하는 사람들은 복이 있습니다. 그들이 하나님의 아들들이라고 불릴 것이기 때문입니다.","10":"의를 위하여 박해받은 사람들은 복이 있습니다. 하늘들의 왕국이 그들의 것이기 때문입니다.","11":"나 때문에 사람들이 여러분을 모욕하고 박해하며 거짓으로 여러분을 거슬러 온갖 악한 말을 할 때 여러분은 복이 있습니다.","12":"기뻐하고 크게 즐거워하십시오. 하늘들에서 여러분의 보상이 크기 때문입니다. 여러분보다 먼저 있었던 신언자들도 그와 같이 박해했습니다.","13":"여러분은 땅의 소금입니다. 그러나 소금이 맛을 잃으면 무엇으로 다시 짜게 하겠습니까? 그것은 더 이상 아무 쓸모가 없어 밖에 던져져 사람들에게 밟힐 뿐입니다.","14":"여러분은 세상의 빛입니다. 산 위에 있는 도시는 숨겨질 수 없습니다.","15":"사람들이 등불을 켜서 됫박 아래 두지 않고 등잔대 위에 둡니다. 그러면 집 안에 있는 모든 사람에게 빛을 비춥니다.","16":"이와 같이 여러분의 빛을 사람들 앞에 비추어, 그들이 여러분의 좋은 행위들을 보고 하늘들에 계신 여러분의 아버지께 영광을 돌리게 하십시오.","17":"내가 율법이나 신언자들을 폐하러 왔다고 생각하지 마십시오. 폐하러 온 것이 아니라 이루러 왔습니다.","18":"진실로 내가 여러분에게 말합니다. 하늘과 땅이 없어지기 전에는 모든 것이 이루어질 때까지 율법에서 한 이오타나 한 획도 결코 없어지지 않을 것입니다.","19":"그러므로 이 계명들 가운데 가장 작은 것 하나라도 풀어 버리고 사람들에게 그렇게 가르치는 사람은 하늘들의 왕국에서 가장 작은 사람이라고 불릴 것입니다. 그러나 그것들을 행하고 가르치는 사람은 하늘들의 왕국에서 큰 사람이라고 불릴 것입니다.","20":"내가 여러분에게 말합니다. 여러분의 의가 율법학자들과 바리새인들의 의보다 더 넘치지 않으면 여러분은 결코 하늘들의 왕국에 들어가지 못할 것입니다.","21":"옛사람들에게 ‘살인하지 마라. 살인하는 사람은 심판을 받게 될 것이다’라고 말씀하신 것을 여러분이 들었습니다.","22":"그러나 나는 여러분에게 말합니다. 자기 형제에게 화를 내는 사람은 누구나 심판을 받게 될 것입니다. 자기 형제에게 ‘라카’라고 하는 사람은 공회에 넘겨질 것이며, ‘어리석은 자야’라고 하는 사람은 불의 게헨나에 들어갈 위험이 있습니다.","23":"그러므로 그대가 제단에 예물을 드리다가 거기서 형제가 그대에게 원망할 일이 있다는 것이 생각나거든,","24":"그 예물을 제단 앞에 두고 먼저 가서 형제와 화해하십시오. 그 후에 와서 예물을 드리십시오.","25":"그대를 고발하는 사람과 함께 길에 있을 때 빨리 그와 화해하십시오. 그렇지 않으면 고발하는 사람이 그대를 재판관에게 넘기고 재판관은 경비병에게 넘겨 그대가 감옥에 던져질 수 있습니다.","26":"진실로 내가 그대에게 말합니다. 그대가 마지막 한 푼까지 갚기 전에는 결코 거기서 나오지 못할 것입니다.","27":"‘간음하지 마라’라고 말씀하신 것을 여러분이 들었습니다.","28":"그러나 나는 여러분에게 말합니다. 여자를 욕망하여 바라보는 사람은 누구나 이미 자기 마음속에서 그 여자와 간음한 것입니다.","29":"만일 그대의 오른눈이 그대를 걸려 넘어지게 한다면 그것을 빼어 던져 버리십시오. 그대의 지체 하나가 없어지는 것이 온몸이 게헨나에 던져지는 것보다 낫습니다.","30":"또 그대의 오른손이 그대를 걸려 넘어지게 한다면 그것을 잘라 던져 버리십시오. 그대의 지체 하나가 없어지는 것이 온몸이 게헨나로 가는 것보다 낫습니다.","31":"또 ‘자기 아내와 이혼하는 사람은 이혼 증서를 주어라’라고 말씀하셨습니다.","32":"그러나 나는 여러분에게 말합니다. 음행의 사유 외에 자기 아내와 이혼하는 사람은 그 여자를 간음하게 하며, 이혼한 여자와 결혼하는 사람도 간음합니다.","33":"또 옛사람들에게 ‘거짓 맹세를 하지 말고 주님께 한 맹세를 지켜라’라고 말씀하신 것을 여러분이 들었습니다.","34":"그러나 나는 여러분에게 말합니다. 전혀 맹세하지 마십시오. 하늘을 두고도 하지 마십시오. 하늘은 하나님의 보좌이기 때문입니다.","35":"땅을 두고도 하지 마십시오. 땅은 그분의 발판이기 때문입니다. 예루살렘을 두고도 하지 마십시오. 예루살렘은 위대한 왕의 도시이기 때문입니다.","36":"그대의 머리를 두고도 맹세하지 마십시오. 그대는 머리카락 하나도 희거나 검게 만들 수 없기 때문입니다.","37":"여러분의 말은 ‘예’이면 ‘예’, ‘아니요’이면 ‘아니요’가 되게 하십시오. 이것을 넘어서는 것은 악에서 [또는: 악한 자에게서] 나옵니다.","38":"‘눈은 눈으로, 이는 이로’라고 말씀하신 것을 여러분이 들었습니다.","39":"그러나 나는 여러분에게 말합니다. 악한 사람에게 맞서 보복하지 마십시오. 누가 그대의 오른뺨을 치거든 다른 뺨도 그에게 돌려 대십시오.","40":"누가 그대를 고소하여 속옷을 가지려 하거든 겉옷까지도 그에게 내주십시오.","41":"누가 그대에게 억지로 일 마일을 가게 하거든 그와 함께 이 마일을 가십시오.","42":"그대에게 요구하는 사람에게 주고, 그대에게 빌리려는 사람을 외면하지 마십시오.","43":"‘그대의 이웃을 사랑하고 그대의 원수를 미워하여라’라고 말씀하신 것을 여러분이 들었습니다.","44":"그러나 나는 여러분에게 말합니다. 여러분의 원수들을 사랑하고 여러분을 박해하는 사람들을 위하여 기도하십시오.","45":"그래야 여러분이 하늘들에 계신 여러분의 아버지의 아들들이 될 것입니다. 그분은 악한 사람들과 선한 사람들 위에 자기 해를 떠오르게 하시고 의로운 사람들과 불의한 사람들 위에 비를 내리십니다.","46":"여러분을 사랑하는 사람들만 사랑한다면 무슨 보상을 받겠습니까? 세리들도 그렇게 하지 않습니까?","47":"여러분이 여러분의 형제들에게만 인사한다면 무슨 특별한 일을 하는 것입니까? 이방인들도 그렇게 하지 않습니까?","48":"그러므로 하늘의 여러분의 아버지께서 온전하신 것처럼 여러분도 온전하십시오 [또는: 완전하고 성숙하며 온전한 사람이 되십시오]."},"6":{"1":"사람들에게 보이려고 그들 앞에서 여러분의 의를 행하지 않도록 주의하십시오. 그렇지 않으면 하늘들에 계신 여러분의 아버지에게서 보상을 받지 못합니다.","2":"그러므로 그대가 구제할 때 위선자들이 사람들에게 영광을 받으려고 회당들과 거리들에서 하는 것처럼 그대 앞에서 나팔을 불지 마십시오. 진실로 내가 여러분에게 말합니다. 그들은 자기들의 보상을 이미 다 받았습니다.","3":"그러나 그대가 구제할 때에는 그대의 왼손이 오른손이 하는 것을 알지 못하게 하여,","4":"그대의 구제가 은밀한 가운데 있게 하십시오. 그러면 은밀한 가운데 보시는 그대의 아버지께서 그대에게 갚아 주실 것입니다.","5":"또 여러분이 기도할 때 위선자들처럼 하지 마십시오. 그들은 사람들에게 보이려고 회당들과 큰길 모퉁이에 서서 기도하기를 좋아합니다. 진실로 내가 여러분에게 말합니다. 그들은 자기들의 보상을 이미 다 받았습니다.","6":"그러나 그대가 기도할 때에는 그대의 방으로 들어가 문을 닫고 은밀한 가운데 계시는 그대의 아버지께 기도하십시오. 그러면 은밀한 가운데 보시는 그대의 아버지께서 그대에게 갚아 주실 것입니다.","7":"또 기도할 때 이방인들처럼 의미 없는 말을 되풀이하지 마십시오. 그들은 말을 많이 해야 자기들의 기도가 들릴 것이라고 생각합니다.","8":"그러므로 그들과 같이 되지 마십시오. 여러분이 구하기 전에 여러분의 아버지께서 여러분에게 무엇이 필요한지 알고 계시기 때문입니다.","9":"그러므로 여러분은 이렇게 기도하십시오. ‘하늘들에 계신 우리 아버지, 아버지의 이름이 거룩하게 여겨지게 하시며,","10":"아버지의 왕국이 오게 하시며, 아버지의 뜻이 하늘에서 이루어진 것처럼 땅에서도 이루어지게 하십시오.","11":"오늘 우리에게 필요한 양식을 [또는: 오늘을 위한 양식, 오는 날의 양식] 주시고,","12":"우리가 우리에게 빚진 사람들을 용서한 것처럼 우리의 빚들도 용서해 주시며,","13":"우리를 시험에 들어가게 하지 마시고 악에서 [또는: 악한 자에게서] 구해 주십시오.’","14":"여러분이 사람들의 잘못을 용서하면 하늘의 여러분의 아버지께서도 여러분을 용서하실 것입니다.","15":"그러나 여러분이 사람들을 용서하지 않으면 여러분의 아버지께서도 여러분의 잘못을 용서하지 않으실 것입니다.","16":"여러분이 금식할 때 위선자들처럼 침울한 얼굴을 하지 마십시오. 그들은 금식하는 것을 사람들에게 보이려고 자기 얼굴을 흉하게 합니다. 진실로 내가 여러분에게 말합니다. 그들은 자기들의 보상을 이미 다 받았습니다.","17":"그러나 그대가 금식할 때에는 머리에 기름을 바르고 얼굴을 씻으십시오.","18":"그래서 그대가 금식하는 것을 사람들에게 보이지 말고 은밀한 가운데 계시는 그대의 아버지께 보이십시오. 그러면 은밀한 가운데 보시는 그대의 아버지께서 그대에게 갚아 주실 것입니다.","19":"여러분 자신을 위하여 땅에 보물들을 쌓아 두지 마십시오. 거기서는 좀과 녹이 망가뜨리고 도둑들이 뚫고 들어와 훔칩니다.","20":"오히려 여러분 자신을 위하여 하늘에 보물들을 쌓아 두십시오. 거기서는 좀도 녹도 망가뜨리지 못하고 도둑들이 뚫고 들어와 훔치지도 못합니다.","21":"그대의 보물이 있는 곳에 그대의 마음도 있을 것입니다.","22":"몸의 등불은 눈입니다. 그러므로 그대의 눈이 맑으면 [또는: 단순하고 한결같으면] 그대의 온몸이 밝을 것입니다.","23":"그러나 그대의 눈이 나쁘면 그대의 온몸이 어두울 것입니다. 그러므로 그대 안에 있는 빛이 어둠이라면 그 어둠이 얼마나 크겠습니까!","24":"아무도 두 주인을 섬길 수 없습니다. 한쪽을 미워하고 다른 쪽을 사랑하거나, 한쪽을 붙들고 다른 쪽을 업신여길 것이기 때문입니다. 여러분은 하나님과 재물을 함께 섬길 수 없습니다.","25":"그러므로 내가 여러분에게 말합니다. 여러분의 생명을 위하여 무엇을 먹을까 무엇을 마실까 염려하지 말고, 여러분의 몸을 위하여 무엇을 입을까 염려하지 마십시오. 생명이 음식보다, 몸이 옷보다 더 중요하지 않습니까?","26":"하늘의 새들을 바라보십시오. 그것들은 씨를 뿌리지도 거두지도 창고에 모아들이지도 않지만, 하늘의 여러분의 아버지께서 그것들을 먹이십니다. 여러분은 그것들보다 훨씬 더 귀하지 않습니까?","27":"여러분 가운데 누가 염려함으로 자기 수명에 한 큐빗을 더할 수 있습니까 [또는: 자기 키에 한 큐빗을 더할 수 있습니까]?","28":"또 여러분은 왜 옷에 관하여 염려합니까? 들의 백합들이 어떻게 자라는지 자세히 생각해 보십시오. 그것들은 수고하지도 않고 실을 잣지도 않습니다.","29":"그러나 내가 여러분에게 말합니다. 솔로몬도 그의 모든 영광 가운데서 이 꽃들 가운데 하나처럼 입지 못했습니다.","30":"오늘 있다가 내일 아궁이에 던져지는 들풀도 하나님께서 이렇게 입히시는데, 믿음이 작은 사람들이여, 하물며 여러분은 얼마나 더 잘 입히시겠습니까?","31":"그러므로 ‘무엇을 먹을까?’, ‘무엇을 마실까?’, ‘무엇을 입을까?’ 하며 염려하지 마십시오.","32":"이 모든 것은 이방인들이 애써 찾는 것들입니다. 하늘의 여러분의 아버지께서는 여러분에게 이 모든 것이 필요하다는 것을 알고 계십니다.","33":"그러나 먼저 그분의 왕국과 그분의 의를 추구하십시오. 그러면 이 모든 것이 여러분에게 더해질 것입니다.","34":"그러므로 내일을 염려하지 마십시오. 내일은 그 자체의 일을 염려할 것입니다. 그날의 어려움은 그날로 충분합니다."},"7":{"1":"심판하지 마십시오. 그래야 여러분도 심판받지 않습니다.","2":"여러분이 심판하는 그 심판으로 여러분도 심판받을 것이고, 여러분이 재는 그 척도로 여러분에게도 재어질 것입니다.","3":"왜 그대는 형제의 눈 속에 있는 티는 보면서 자기 눈 속에 있는 들보는 깨닫지 못합니까?","4":"또 어떻게 형제에게 ‘내가 네 눈에서 티를 빼 주겠다’라고 말할 수 있습니까? 보십시오, 그대의 눈 속에는 들보가 있습니다.","5":"위선자여, 먼저 그대의 눈에서 들보를 빼십시오. 그러면 그대가 분명히 보게 되어 형제의 눈에서 티를 빼 줄 수 있을 것입니다.","6":"거룩한 것을 개들에게 주지 말고 여러분의 진주들을 돼지들 앞에 던지지 마십시오. 그것들이 발로 그것들을 짓밟고 돌아서서 여러분을 찢을 수도 있습니다.","7":"구하십시오. 그러면 여러분에게 주실 것입니다. 찾으십시오. 그러면 발견할 것입니다. 두드리십시오. 그러면 여러분에게 열릴 것입니다.","8":"구하는 사람마다 받고, 찾는 사람은 발견하며, 두드리는 사람에게는 열릴 것이기 때문입니다.","9":"여러분 가운데 어떤 사람이 자기 아들이 빵을 달라고 하는데 돌을 주겠습니까?","10":"또 생선을 달라고 하는데 뱀을 주겠습니까?","11":"그러므로 여러분이 악한 사람들인데도 자기 자녀들에게 좋은 선물들을 줄 줄 안다면, 하늘들에 계신 여러분의 아버지께서는 구하는 사람들에게 얼마나 더 좋은 것들을 주시겠습니까!","12":"그러므로 사람들이 여러분에게 해 주기를 바라는 모든 것을 여러분도 그들에게 그대로 해 주십시오. 이것이 율법과 신언자들입니다.","13":"좁은 문으로 들어가십시오. 멸망으로 이끄는 문은 넓고 길은 널찍하여 그리로 들어가는 사람들이 많습니다.","14":"생명으로 이끄는 문은 좁고 길은 비좁아서 그것을 찾는 사람들이 적습니다.","15":"거짓 신언자들을 조심하십시오. 그들은 양의 옷을 입고 여러분에게 오지만 속에는 약탈하는 이리들입니다.","16":"여러분은 그들의 열매들로 그들을 알아볼 것입니다. 사람들이 가시나무에서 포도를, 엉겅퀴에서 무화과를 따겠습니까?","17":"이와 같이 좋은 나무마다 좋은 열매를 맺고 나쁜 나무는 나쁜 열매를 맺습니다.","18":"좋은 나무가 나쁜 열매를 맺을 수 없고 나쁜 나무가 좋은 열매를 맺을 수도 없습니다.","19":"좋은 열매를 맺지 않는 나무마다 찍혀 불 속에 던져집니다.","20":"그러므로 여러분은 그들의 열매들로 그들을 알아볼 것입니다.","21":"나에게 ‘주님, 주님’이라고 말하는 사람마다 하늘들의 왕국에 들어가는 것이 아니라, 하늘들에 계신 내 아버지의 뜻을 행하는 사람이 들어갈 것입니다.","22":"그날에 많은 사람이 나에게 ‘주님, 주님, 우리가 주님의 이름으로 신언하지 않았습니까? 주님의 이름으로 귀신들을 쫓아내고 주님의 이름으로 많은 능력의 일들을 행하지 않았습니까?’라고 말할 것입니다.","23":"그때 내가 그들에게 분명히 선언할 것입니다. ‘나는 여러분을 결코 알지 못했습니다. 불법을 행하는 사람들이여, 나에게서 떠나십시오.’","24":"그러므로 나의 이 말들을 듣고 행하는 사람은 누구나 반석 위에 자기 집을 지은 지혜로운 사람과 같을 것입니다.","25":"비가 내리고 홍수가 나며 바람이 불어 그 집에 들이쳤지만 무너지지 않았습니다. 그 집이 반석 위에 기초를 놓았기 때문입니다.","26":"또 나의 이 말들을 듣고 행하지 않는 사람은 누구나 모래 위에 자기 집을 지은 어리석은 사람과 같을 것입니다.","27":"비가 내리고 홍수가 나며 바람이 불어 그 집에 부딪히자 무너졌고, 그 무너짐이 매우 컸습니다.","28":"예수님께서 이 말씀들을 마치시자 무리들이 그분의 가르침에 놀랐다.","29":"그분께서 그들의 율법학자들처럼이 아니라 권위를 가지신 분처럼 그들을 가르치셨기 때문이다."}};
+const OUR_ENGLISH={"1":{"1":"The book of the genealogy of Jesus Christ, son of David, son of Abraham.","2":"Abraham fathered Isaac, Isaac fathered Jacob, and Jacob fathered Judah and his brothers.","3":"Judah fathered Perez and Zerah by Tamar, Perez fathered Hezron, and Hezron fathered Aram.","4":"Aram fathered Amminadab, Amminadab fathered Nahshon, and Nahshon fathered Salmon.","5":"Salmon fathered Boaz by Rahab, Boaz fathered Obed by Ruth, and Obed fathered Jesse.","6":"Jesse fathered David the king. David fathered Solomon by the wife of Uriah.","7":"Solomon fathered Rehoboam, Rehoboam fathered Abijah, and Abijah fathered Asaph.","8":"Asaph fathered Jehoshaphat, Jehoshaphat fathered Joram, and Joram fathered Uzziah.","9":"Uzziah fathered Jotham, Jotham fathered Ahaz, and Ahaz fathered Hezekiah.","10":"Hezekiah fathered Manasseh, Manasseh fathered Amos, and Amos fathered Josiah.","11":"Josiah fathered Jeconiah and his brothers at the time of the deportation to Babylon.","12":"After the deportation to Babylon, Jeconiah fathered Shealtiel, and Shealtiel fathered Zerubbabel.","13":"Zerubbabel fathered Abiud, Abiud fathered Eliakim, and Eliakim fathered Azor.","14":"Azor fathered Zadok, Zadok fathered Achim, and Achim fathered Eliud.","15":"Eliud fathered Eleazar, Eleazar fathered Matthan, and Matthan fathered Jacob.","16":"Jacob fathered Joseph, the husband of Mary, from whom Jesus was born, who is called Christ.","17":"So all the generations from Abraham to David were fourteen generations, from David to the deportation to Babylon fourteen generations, and from the deportation to Babylon to the Christ fourteen generations.","18":"Now the birth of Jesus Christ happened in this way. When His mother Mary had been betrothed to Joseph, before they came together she was found to be pregnant from the Holy Spirit.","19":"Joseph her husband, being righteous and not wishing to expose her publicly, intended to divorce her quietly.","20":"But while he was considering these things, look, an angel of the Lord appeared to him in a dream, saying, “Joseph, son of David, do not be afraid to take Mary as your wife, for what has been conceived in her is from the Holy Spirit.","21":"She will bear a son, and you shall call His name Jesus, for He will save His people from their sins.”","22":"Now all this happened so that what was spoken by the Lord through the prophet might be fulfilled:","23":"“Look, the virgin will conceive and bear a son, and they will call His name Immanuel,” which translated means, “God with us.”","24":"Then Joseph, having awakened from sleep, did as the angel of the Lord commanded him and took his wife.","25":"But he did not know her until she had borne a son, and he called His name Jesus."},"2":{"1":"Now after Jesus was born in Bethlehem of Judea in the days of Herod the king, look, magi from the east arrived in Jerusalem,","2":"saying, “Where is the One who has been born King of the Jews? For we saw His star in the east and have come to worship Him.”","3":"When Herod the king heard this, he was troubled, and all Jerusalem with him.","4":"And gathering all the chief priests and scribes of the people, he inquired of them where the Christ was to be born.","5":"They said to him, “In Bethlehem of Judea, for so it has been written through the prophet:","6":"‘And you, Bethlehem, land of Judah, are by no means least among the rulers of Judah; for from you will come a Ruler who will shepherd My people Israel.’”","7":"Then Herod secretly called the magi and determined from them precisely the time when the star appeared.","8":"And sending them to Bethlehem, he said, “Go and search carefully for the child, and when you have found Him, report to me, so that I too may go and worship Him.”","9":"After hearing the king, they went their way. And look, the star that they had seen in the east went before them until it came and stood over the place where the child was.","10":"When they saw the star, they rejoiced with exceedingly great joy.","11":"And entering the house, they saw the child with Mary His mother, and falling down they worshiped Him. Then opening their treasures, they offered Him gifts: gold, frankincense, and myrrh.","12":"And having been warned by God in a dream not to return to Herod, they withdrew to their own country by another way.","13":"After they had withdrawn, look, an angel of the Lord appeared to Joseph in a dream, saying, “Rise, take the child and His mother, flee to Egypt, and remain there until I tell you, for Herod is about to seek the child to destroy Him.”","14":"So he rose and took the child and His mother by night and withdrew to Egypt,","15":"and remained there until the death of Herod, so that what was spoken by the Lord through the prophet might be fulfilled: “Out of Egypt I called My Son.”","16":"Then Herod, seeing that he had been deceived by the magi, became exceedingly enraged, and he sent and killed all the boys in Bethlehem and in all its surrounding region who were two years old and under, according to the time that he had precisely determined from the magi.","17":"Then what was spoken through Jeremiah the prophet was fulfilled:","18":"“A voice was heard in Ramah, weeping and great mourning: Rachel weeping for her children, and she refused to be comforted, because they are no more.”","19":"But after Herod died, look, an angel of the Lord appeared in a dream to Joseph in Egypt,","20":"saying, “Rise, take the child and His mother, and go to the land of Israel, for those who were seeking the child’s life are dead.”","21":"So he rose, took the child and His mother, and entered the land of Israel.","22":"But hearing that Archelaus was reigning over Judea in place of his father Herod, he was afraid to go there. And having been warned by God in a dream, he withdrew to the region of Galilee.","23":"And he came and settled in a town called Nazareth, so that what was spoken through the prophets might be fulfilled: “He will be called a Nazarene.”"},"3":{"1":"In those days John the Baptist came, proclaiming in the wilderness of Judea","2":"and saying, “Repent, for the kingdom of the heavens has drawn near.”","3":"For this is the one spoken of through Isaiah the prophet: “A voice of one crying in the wilderness, ‘Prepare the way of the Lord; make His paths straight.’”","4":"Now this John wore clothing of camel’s hair and a leather belt around his waist, and his food was locusts and wild honey.","5":"Then Jerusalem and all Judea and all the region around the Jordan were going out to him,","6":"and they were being baptized by him in the Jordan River, confessing their sins.","7":"But seeing many of the Pharisees and Sadducees coming for baptism, he said to them, “Offspring of vipers, who warned you to flee from the coming wrath?","8":"Therefore produce fruit worthy of repentance.","9":"And do not think to say among yourselves, ‘We have Abraham as our father.’ For I tell you that God is able from these stones to raise up children for Abraham.","10":"Already the axe is laid at the root of the trees. Therefore every tree not producing good fruit is cut down and thrown into the fire.","11":"I baptize you in water for repentance, but the One coming after me is mightier than I, whose sandals I am not worthy to carry. He will baptize you in the Holy Spirit and fire.","12":"His winnowing fork is in His hand, and He will thoroughly cleanse His threshing floor and gather His wheat into the barn, but the chaff He will burn with unquenchable fire.”","13":"Then Jesus came from Galilee to the Jordan, to John, to be baptized by him.","14":"But John tried to prevent Him, saying, “I need to be baptized by You, and do You come to me?”","15":"But Jesus answered and said to him, “Allow it now, for in this way it is fitting for us to fulfill all righteousness.” Then he allowed Him.","16":"And after being baptized, Jesus immediately came up from the water. And look, the heavens were opened to Him, and He saw the Spirit of God descending like a dove and coming upon Him.","17":"And look, a voice from the heavens said, “This is My beloved Son, in whom I am well pleased.”"},"4":{"1":"Then Jesus was led up by the Spirit into the wilderness to be tempted by the devil.","2":"And after fasting forty days and forty nights, He became hungry.","3":"And the tempter came and said to Him, “If You are the Son of God, speak so that these stones may become loaves of bread.”","4":"But He answered and said, “It is written: ‘Man shall not live by bread alone, but by every word that proceeds through the mouth of God.’”","5":"Then the devil took Him into the holy city and set Him on the pinnacle of the temple","6":"and said to Him, “If You are the Son of God, throw Yourself down, for it is written: ‘He will command His angels concerning You,’ and, ‘On their hands they will bear You up, lest You strike Your foot against a stone.’”","7":"Jesus said to him, “Again it is written: ‘You shall not put the Lord your God to the test.’”","8":"Again the devil took Him to a very high mountain and showed Him all the kingdoms of the world and their glory.","9":"And he said to Him, “All these things I will give You if You fall down and worship me.”","10":"Then Jesus said to him, “Go away, Satan! For it is written: ‘You shall worship the Lord your God, and Him alone you shall serve.’”","11":"Then the devil left Him, and look, angels came and ministered to Him.","12":"Now when Jesus heard that John had been handed over, He withdrew into Galilee.","13":"And leaving Nazareth, He came and settled in Capernaum by the sea, in the regions of Zebulun and Naphtali,","14":"so that what was spoken through Isaiah the prophet might be fulfilled:","15":"“Land of Zebulun and land of Naphtali, way of the sea, beyond the Jordan, Galilee of the Gentiles—","16":"the people sitting in darkness saw a great light, and for those sitting in the land and shadow of death, a light arose.”","17":"From that time Jesus began to proclaim and to say, “Repent, for the kingdom of the heavens has drawn near.”","18":"And walking by the Sea of Galilee, He saw two brothers, Simon called Peter and Andrew his brother, casting a net into the sea, for they were fishermen.","19":"And He said to them, “Come after Me, and I will make you fishers of people.”","20":"And immediately they left the nets and followed Him.","21":"And going on from there, He saw two other brothers, James the son of Zebedee and John his brother, in the boat with Zebedee their father, mending their nets, and He called them.","22":"And immediately they left the boat and their father and followed Him.","23":"And Jesus went throughout all Galilee, teaching in their synagogues, proclaiming the gospel of the kingdom, and healing every disease and every sickness among the people.","24":"And the report about Him went out into all Syria. And they brought to Him all those who were ill, afflicted with various diseases and pains, those possessed by demons, those having seizures, and paralytics; and He healed them.","25":"And great crowds followed Him from Galilee and Decapolis and Jerusalem and Judea and from beyond the Jordan."},"5":{"1":"And seeing the crowds, He went up on the mountain; and when He sat down, His disciples came to Him.","2":"And opening His mouth, He taught them, saying:","3":"“Blessed are the poor in spirit, for theirs is the kingdom of the heavens.","4":"Blessed are those who mourn, for they will be comforted.","5":"Blessed are the meek, for they will inherit the earth.","6":"Blessed are those who hunger and thirst for righteousness, for they will be filled.","7":"Blessed are the merciful, for they will receive mercy.","8":"Blessed are the pure in heart, for they will see God.","9":"Blessed are the peacemakers, for they will be called sons of God.","10":"Blessed are those who have been persecuted for righteousness, for theirs is the kingdom of the heavens.","11":"Blessed are you when people insult you and persecute you and falsely say every kind of evil against you because of Me.","12":"Rejoice and be exceedingly glad, for your reward is great in the heavens; for in the same way they persecuted the prophets who were before you.","13":"You are the salt of the earth. But if the salt becomes tasteless, with what will it be salted? It is no longer good for anything except to be thrown outside and trampled by people.","14":"You are the light of the world. A city set on a mountain cannot be hidden.","15":"Nor do people light a lamp and put it under a basket, but on the lampstand, and it shines for everyone in the house.","16":"In the same way, let your light shine before people, so that they may see your good works and glorify your Father who is in the heavens.","17":"Do not think that I came to abolish the Law or the Prophets. I did not come to abolish but to fulfill.","18":"For truly I tell you, until heaven and earth pass away, not one iota or one stroke will pass from the Law until all things happen.","19":"Therefore whoever loosens one of the least of these commandments and teaches people so will be called least in the kingdom of the heavens; but whoever does and teaches them will be called great in the kingdom of the heavens.","20":"For I tell you that unless your righteousness exceeds that of the scribes and Pharisees, you will certainly not enter the kingdom of the heavens.","21":"You heard that it was said to the ancients, ‘You shall not murder,’ and ‘Whoever murders will be liable to judgment.’","22":"But I tell you that everyone who is angry with his brother will be liable to judgment; whoever says to his brother, ‘Raca,’ will be liable to the council; and whoever says, ‘Fool,’ will be liable to the Gehenna of fire.","23":"Therefore if you are offering your gift at the altar and there remember that your brother has something against you,","24":"leave your gift there before the altar, and first go and be reconciled to your brother; then come and offer your gift.","25":"Come to terms quickly with your accuser while you are with him on the way, lest the accuser hand you over to the judge, and the judge to the guard, and you be thrown into prison.","26":"Truly I tell you, you will certainly not come out from there until you have paid the last penny.","27":"You heard that it was said, ‘You shall not commit adultery.’","28":"But I tell you that everyone who looks at a woman in order to desire her has already committed adultery with her in his heart.","29":"And if your right eye causes you to stumble, tear it out and throw it from you; for it is better for you that one of your members perish than that your whole body be thrown into Gehenna.","30":"And if your right hand causes you to stumble, cut it off and throw it from you; for it is better for you that one of your members perish than that your whole body go into Gehenna.","31":"It was also said, ‘Whoever divorces his wife, let him give her a certificate of divorce.’","32":"But I tell you that everyone who divorces his wife, except on account of sexual immorality, makes her commit adultery; and whoever marries a divorced woman commits adultery.","33":"Again, you heard that it was said to the ancients, ‘You shall not swear falsely, but shall fulfill your oaths to the Lord.’","34":"But I tell you not to swear at all: neither by heaven, because it is the throne of God;","35":"nor by the earth, because it is the footstool of His feet; nor by Jerusalem, because it is the city of the great King.","36":"Nor shall you swear by your head, because you cannot make one hair white or black.","37":"But let your word be ‘Yes, yes,’ ‘No, no.’ Anything beyond these is from evil [or: from the evil one].","38":"You heard that it was said, ‘An eye for an eye and a tooth for a tooth.’","39":"But I tell you not to retaliate against an evil person. Rather, whoever strikes you on your right cheek, turn the other to him also.","40":"And to the one who wants to sue you and take your tunic, let him have your cloak also.","41":"And whoever compels you to go one mile, go with him two.","42":"Give to the one who asks you, and do not turn away from the one who wants to borrow from you.","43":"You heard that it was said, ‘You shall love your neighbor and hate your enemy.’","44":"But I tell you: love your enemies and pray for those who persecute you,","45":"so that you may become sons of your Father who is in the heavens; for He makes His sun rise on evil and good people and sends rain on righteous and unrighteous people.","46":"For if you love those who love you, what reward do you have? Do not even the tax collectors do the same?","47":"And if you greet only your brothers, what extraordinary thing are you doing? Do not even the Gentiles do the same?","48":"Therefore you shall be perfect [also: complete, mature, whole], as your heavenly Father is perfect."},"6":{"1":"Be careful not to practice your righteousness before people in order to be seen by them; otherwise you have no reward with your Father who is in the heavens.","2":"Therefore when you give to the needy, do not sound a trumpet before you as the hypocrites do in the synagogues and streets so that they may be glorified by people. Truly I tell you, they have received their reward in full.","3":"But when you give to the needy, do not let your left hand know what your right hand is doing,","4":"so that your giving may be in secret; and your Father who sees in secret will repay you.","5":"And when you pray, you shall not be like the hypocrites, for they love to stand and pray in the synagogues and at the street corners so that they may be seen by people. Truly I tell you, they have received their reward in full.","6":"But when you pray, enter your inner room, shut your door, and pray to your Father who is in secret; and your Father who sees in secret will repay you.","7":"And when you pray, do not babble repetitively like the Gentiles, for they think that in their many words they will be heard.","8":"Therefore do not be like them, for your Father knows what you need before you ask Him.","9":"Therefore pray in this way: ‘Our Father who is in the heavens, let Your name be sanctified.","10":"Let Your kingdom come. Let Your will be done, as in heaven, so also on earth.","11":"Give us today our necessary bread [also: bread for today; bread for the coming day],","12":"and forgive us our debts, as we also have forgiven our debtors,","13":"and do not bring us into temptation [also: testing], but deliver us from evil [or: the evil one].’","14":"For if you forgive people their trespasses, your heavenly Father will also forgive you.","15":"But if you do not forgive people, neither will your Father forgive your trespasses.","16":"And when you fast, do not become gloomy like the hypocrites, for they disfigure their faces so that their fasting may be seen by people. Truly I tell you, they have received their reward in full.","17":"But when you fast, anoint your head and wash your face,","18":"so that your fasting may not be seen by people but by your Father who is in secret; and your Father who sees in secret will repay you.","19":"Do not store up for yourselves treasures on earth, where moth and corrosion destroy and where thieves break in and steal.","20":"But store up for yourselves treasures in heaven, where neither moth nor corrosion destroys and where thieves do not break in or steal.","21":"For where your treasure is, there your heart will be also.","22":"The lamp of the body is the eye. Therefore if your eye is clear [also: single, sincere, generous], your whole body will be full of light.","23":"But if your eye is bad, your whole body will be dark. Therefore if the light in you is darkness, how great is the darkness!","24":"No one can serve two masters, for either he will hate the one and love the other, or he will be devoted to one and despise the other. You cannot serve God and mammon.","25":"Therefore I tell you, do not be anxious about your life, what you will eat or what you will drink, nor about your body, what you will wear. Is not life more than food and the body more than clothing?","26":"Look at the birds of heaven: they neither sow nor reap nor gather into barns, and your heavenly Father feeds them. Are you not worth much more than they?","27":"And which of you by being anxious can add one cubit to his lifespan [or: stature]?","28":"And why are you anxious about clothing? Consider carefully how the lilies of the field grow: they neither labor nor spin.","29":"Yet I tell you that not even Solomon in all his glory was clothed like one of these.","30":"But if God so clothes the grass of the field, which is here today and tomorrow is thrown into an oven, will He not much more clothe you, you of little faith?","31":"Therefore do not be anxious, saying, ‘What will we eat?’ or ‘What will we drink?’ or ‘What will we wear?’","32":"For the Gentiles eagerly seek all these things, and your heavenly Father knows that you need them all.","33":"But seek first His kingdom and His righteousness, and all these things will be added to you.","34":"Therefore do not be anxious about tomorrow, for tomorrow will be anxious for itself. Sufficient for the day is its own trouble."},"7":{"1":"Do not judge, so that you may not be judged.","2":"For with the judgment you judge, you will be judged; and with the measure you measure, it will be measured to you.","3":"And why do you see the speck in your brother’s eye but do not notice the beam in your own eye?","4":"Or how will you say to your brother, ‘Let me remove the speck from your eye,’ and look, the beam is in your eye?","5":"Hypocrite! First remove the beam from your own eye, and then you will see clearly to remove the speck from your brother’s eye.","6":"Do not give what is holy to dogs, nor throw your pearls before pigs, lest they trample them with their feet and turn and tear you apart.","7":"Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you.","8":"For everyone who asks receives, and the one who seeks finds, and to the one who knocks it will be opened.","9":"Or what person among you, if his son asks him for bread, will give him a stone?","10":"Or if he asks for a fish, will give him a snake?","11":"Therefore if you, being evil, know how to give good gifts to your children, how much more will your Father who is in the heavens give good things to those who ask Him!","12":"Therefore, whatever you want people to do to you, do the same also to them; for this is the Law and the Prophets.","13":"Enter through the narrow gate, for wide is the gate and broad is the way that leads to destruction, and many are those who enter through it.","14":"For narrow is the gate and constricted is the way that leads to life, and few are those who find it.","15":"Beware of false prophets, who come to you in sheep’s clothing but inwardly are ravenous wolves.","16":"You will know them by their fruits. Do people gather grapes from thorns or figs from thistles?","17":"In the same way, every good tree produces good fruit, but the bad tree produces bad fruit.","18":"A good tree cannot produce bad fruit, nor can a bad tree produce good fruit.","19":"Every tree not producing good fruit is cut down and thrown into the fire.","20":"Therefore you will know them by their fruits.","21":"Not everyone who says to Me, ‘Lord, Lord,’ will enter the kingdom of the heavens, but the one who does the will of My Father who is in the heavens.","22":"Many will say to Me in that day, ‘Lord, Lord, did we not prophesy in Your name, and in Your name cast out demons, and in Your name do many works of power?’","23":"And then I will declare to them, ‘I never knew you. Depart from Me, you workers of lawlessness.’","24":"Therefore everyone who hears these words of Mine and does them will be like a wise man who built his house on the rock.","25":"And the rain came down, the floods came, and the winds blew and beat against that house, and it did not fall, for it had been founded on the rock.","26":"And everyone who hears these words of Mine and does not do them will be like a foolish man who built his house on the sand.","27":"And the rain came down, the floods came, and the winds blew and struck that house, and it fell, and great was its fall.","28":"And when Jesus finished these words, the crowds were astonished at His teaching,","29":"for He was teaching them as one having authority, and not as their scribes."}};
+const ALT={"believe": "trust · have faith in · rely on · put one’s trust in", "life": "living · vitality · true life · fullness of life", "word": "message · saying · utterance · expression", "light": "illumination · radiance · brightness · revelation", "truth": "reality · truthfulness · what is true · genuineness", "love": "cherish · care for · set one’s love on · value deeply", "remain": "abide · stay · continue · dwell", "worship": "bow in reverence · pay homage · adore · render worship", "sign": "sign-act · token · indication · miraculous sign", "know": "recognize · understand · perceive · be acquainted with", "receive": "accept · welcome · take in · embrace", "glory": "splendor · honor · majesty · radiant glory", "grace": "favor · gracious gift · kindness · generous favor", "Spirit": "spirit · breath · wind · Spirit", "water": "water · living water · spring water · life-giving water", "save": "rescue · deliver · preserve · bring salvation", "follow": "come after · accompany · become a disciple of · follow", "see": "behold · perceive · observe · recognize", "testify": "bear witness · give testimony · attest · affirm", "kingdom": "reign · royal rule · kingship · kingdom"};
+
+const MATTHEW_LEXICAL_EXTRA={"μακαριος":{"meaning":"blessed; favored; flourishing under God’s favor","alts":["blessed","favored","flourishing"]},"πτωχος":{"meaning":"poor, destitute; in Matthew 5:3, poor in spirit","alts":["poor","destitute","needy"]},"πραυς":{"meaning":"meek, gentle","alts":["meek","gentle","mild"]},"δικαιοσυνη":{"meaning":"righteousness; rightness; justice according to context","alts":["righteousness","justice","right conduct","rightness"]},"τελειος":{"meaning":"complete, mature, whole; perfect","alts":["perfect","complete","mature","whole"]},"επιουσιος":{"meaning":"rare word in the Lord’s Prayer; exact nuance disputed","alts":["necessary","daily","for today","for the coming day"]},"πειρασμος":{"meaning":"testing, trial, temptation","alts":["testing","trial","temptation"]},"πονηρος":{"meaning":"evil, wicked; with article may mean the evil one","alts":["evil","wicked","the evil one"]},"απλους":{"meaning":"single, sincere, clear; sometimes generous","alts":["single","clear","sincere","generous"]},"κρινω":{"meaning":"judge, evaluate, pass judgment","alts":["judge","evaluate","decide"]},"στενος":{"meaning":"narrow, constricted","alts":["narrow","constricted"]},"απωλεια":{"meaning":"destruction, ruin, loss","alts":["destruction","ruin","loss"]},"ανομια":{"meaning":"lawlessness","alts":["lawlessness","iniquity","wickedness"]},"εξουσια":{"meaning":"authority, right, delegated power","alts":["authority","right","power"]},"μετανοεω":{"meaning":"repent; change mind and direction","alts":["repent","change one’s mind","turn"]},"ευαγγελιον":{"meaning":"good news, gospel","alts":["gospel","good news"]}};
+const POS_NAMES={'N-':'Noun','V-':'Verb','A-':'Adjective','C-':'Conjunction','D-':'Adverb','I-':'Interjection','P-':'Preposition','RA':'Article','RD':'Demonstrative pronoun','RI':'Interrogative/indefinite pronoun','RP':'Personal pronoun','RR':'Relative pronoun','X-':'Particle'};
+
+const LEXICAL_NOTES={
+ 'κοιλια':{meaning:'belly / innermost being',alts:['belly','innermost being','inner being','deepest part']},
+ 'ποταμος':{meaning:'river',alts:['river','stream','flowing river']},
+ 'ελευθεροω':{meaning:'set free',alts:['set free','free','liberate','release']},
+ 'δουλος':{meaning:'slave / servant',alts:['slave','bondservant','servant']},
+ 'ποιμην':{meaning:'shepherd',alts:['shepherd','pastor','one who tends the flock']},
+ 'ποιμνη':{meaning:'flock',alts:['flock','company of sheep','flock of sheep']},
+ 'θυρα':{meaning:'door / gate',alts:['door','gate','entrance','gateway']},
+ 'περισσος':{meaning:'abundant / beyond',alts:['abundant','full','overflowing','beyond measure']},
+ 'τιθημι':{meaning:'lay / place / give',alts:['lay down','place','set','give']},
+ 'αρπαζω':{meaning:'seize / snatch',alts:['snatch','seize','take away','carry off']},
+ 'τυφλος':{meaning:'blind',alts:['blind','unable to see','spiritually blind']},
+ 'ανοιγω':{meaning:'open',alts:['open','unclose','make accessible']},
+
+ 'ζωοποιεω':{meaning:'give life / make alive',alts:['give life','make alive','bring to life','vivify']},
+ 'εγειρω':{meaning:'raise / rise',alts:['raise','raise up','awaken','cause to rise','resurrect']},
+ 'αναστασις':{meaning:'resurrection',alts:['resurrection','rising','rising again']},
+ 'κριμα':{meaning:'judgment / verdict',alts:['judgment','verdict','sentence','decision']},
+ 'αρτος':{meaning:'bread',alts:['bread','loaf','food']},
+ 'ελκω':{meaning:'draw',alts:['draw','pull','draw toward','attract']},
+ 'τρωγω':{meaning:'eat',alts:['eat','feed on','consume','partake of']},
+ 'φαγω':{meaning:'eat',alts:['eat','consume','partake of']},
+ 'ρημα':{meaning:'spoken word / saying',alts:['word','saying','utterance','spoken message']},
+ 'αιμα':{meaning:'blood',alts:['blood','lifeblood']},
+ 'σκανδαλιζω':{meaning:'cause to stumble / offend',alts:['cause to stumble','offend','trip up','become an obstacle to']},
+ 'σαρξ':{meaning:'flesh',alts:['flesh','human nature','physical nature','bodily existence']},
+ 'ζωη':{meaning:'life',alts:['life','true life','eternal life','fullness of life']},
+ 'λογος':{meaning:'Word',alts:['word','message','expression','utterance','account']},
+ 'θεος':{meaning:'God',alts:['God','deity','the divine One']},
+ 'φως':{meaning:'light',alts:['light','illumination','radiance','revealing light']},
+ 'σκοτια':{meaning:'darkness',alts:['darkness','spiritual darkness','gloom','absence of light']},
+ 'πιστευω':{meaning:'believe / trust',alts:['believe','trust','have faith in','rely on','put one’s trust in']},
+ 'αληθεια':{meaning:'truth',alts:['truth','reality','truthfulness','what is true','genuineness']},
+ 'πνευμα':{meaning:'Spirit / spirit',alts:['Spirit','spirit','breath','wind']},
+ 'αγαπαω':{meaning:'love',alts:['love','cherish','value deeply','set one’s love on']},
+ 'αγαπη':{meaning:'love',alts:['love','affection','devoted love','self-giving love']},
+ 'μενω':{meaning:'remain',alts:['remain','abide','stay','continue','dwell']},
+ 'δοξα':{meaning:'glory',alts:['glory','splendor','honor','majesty','radiance']},
+ 'χαρις':{meaning:'grace',alts:['grace','favor','gracious gift','kindness','generous favor']},
+ 'σημειον':{meaning:'sign',alts:['sign','sign-act','token','indication','miraculous sign']},
+ 'μαρτυρεω':{meaning:'testify',alts:['testify','bear witness','give testimony','attest','affirm']},
+ 'μαρτυρια':{meaning:'testimony',alts:['testimony','witness','evidence','attestation']},
+ 'γινωσκω':{meaning:'know',alts:['know','recognize','understand','perceive','be acquainted with']},
+ 'λαμβανω':{meaning:'receive',alts:['receive','take','accept','welcome','take hold of']},
+ 'προσκυνεω':{meaning:'worship',alts:['worship','bow in reverence','pay homage','adore','render worship']},
+ 'σωζω':{meaning:'save',alts:['save','rescue','deliver','preserve','bring salvation']},
+ 'βασιλεια':{meaning:'kingdom',alts:['kingdom','reign','royal rule','kingship']},
+ 'υιος':{meaning:'son',alts:['son','child','descendant']},
+ 'πατηρ':{meaning:'Father / father',alts:['Father','father','parent']},
+ 'υδωρ':{meaning:'water',alts:['water','living water','spring water','life-giving water']},
+ 'κοσμος':{meaning:'world',alts:['world','human world','created order','world of humanity']},
+ 'κρινω':{meaning:'judge',alts:['judge','pass judgment','decide','evaluate']},
+ 'κριση':{meaning:'judgment',alts:['judgment','decision','condemnation','judicial verdict']},
+ 'γενναω':{meaning:'be born / give birth',alts:['be born','be begotten','give birth','bring forth']},
+ 'ανωθεν':{meaning:'from above',alts:['from above','from heaven','anew','again']},
+ 'αρτος':{meaning:'bread',alts:['bread','food','loaf']},
+ 'εργον':{meaning:'work',alts:['work','deed','action','task']},
+ 'θελημα':{meaning:'will',alts:['will','desire','purpose','intention']},
+ 'σωτηρ':{meaning:'Savior',alts:['Savior','Deliverer','Rescuer']},
+ 'ακολουθεω':{meaning:'follow',alts:['follow','come after','accompany','become a disciple of']},
+ 'βλεπω':{meaning:'see',alts:['see','look at','perceive','notice']},
+ 'οραω':{meaning:'see / behold',alts:['see','behold','perceive','observe','experience']},
+ 'φωνη':{meaning:'voice',alts:['voice','sound','utterance']},
+ 'αμαρτια':{meaning:'sin',alts:['sin','wrongdoing','offense','sinfulness']},
+ 'αμνος':{meaning:'lamb',alts:['lamb','young sheep']},
+ 'δοξαζω':{meaning:'glorify',alts:['glorify','honor','magnify','bring glory to']},
+ 'ναος':{meaning:'sanctuary / temple',alts:['sanctuary','temple','holy place']},
+ 'ιερον':{meaning:'temple complex',alts:['temple','temple complex','sacred precinct']},
+ 'γραφη':{meaning:'Scripture',alts:['Scripture','writing','sacred writing']},
+ 'διδασκαλος':{meaning:'teacher',alts:['teacher','instructor','master']},
+ 'μαθητης':{meaning:'disciple',alts:['disciple','learner','follower','student']},
+ 'αιωνιος':{meaning:'eternal',alts:['eternal','everlasting','age-abiding','without end']},
+ 'εξουσια':{meaning:'authority / right',alts:['authority','right','power','authorization']},
+ 'τεκνον':{meaning:'child',alts:['child','offspring','descendant']},
+ 'μονογενης':{meaning:'unique / only',alts:['unique','one and only','only','only-begotten']},
+ 'πληρωμα':{meaning:'fullness',alts:['fullness','completeness','that which fills']},
+ 'αληθινος':{meaning:'true / genuine',alts:['true','genuine','real','authentic']},
+ 'μεσσιας':{meaning:'Messiah',alts:['Messiah','Anointed One','Christ']},
+ 'χριστος':{meaning:'Christ / Anointed One',alts:['Christ','Messiah','Anointed One']},
+ 'βασιλευς':{meaning:'king',alts:['king','ruler','sovereign']},
+ 'ανθρωπος':{meaning:'human being / person',alts:['person','human being','man','humanity']},
+ 'γυναι':{meaning:'woman',alts:['woman','lady']},
+ 'γυνη':{meaning:'woman / wife',alts:['woman','wife','female']},
+ 'σωμα':{meaning:'body',alts:['body','physical body']},
+ 'αιμα':{meaning:'blood',alts:['blood','bloodline']},
+ 'σπερμα':{meaning:'seed / offspring',alts:['seed','offspring','descendant']},
+ 'χαρα':{meaning:'joy',alts:['joy','gladness','delight','rejoicing']},
+ 'νυμφιος':{meaning:'bridegroom',alts:['bridegroom','groom']},
+ 'νυμφη':{meaning:'bride',alts:['bride','young woman']},
+ 'οργη':{meaning:'wrath',alts:['wrath','anger','indignation','judgmental anger']}
+};
+Object.assign(LEXICAL_NOTES,MATTHEW_LEXICAL_EXTRA);
+
+function cleanStrongDef(x){
+ return (x||'').replace(/:--.*$/,'').replace(/\s+/g,' ').trim();
+}
+function contextualNote(lemma){
+ return LEXICAL_NOTES[lemmaKey(lemma)]||null;
+}
+function showLexicalContext(lemma,strongDef){
+ const ctx=document.getElementById('pcontext'), rend=document.getElementById('prenderings');
+ const note=contextualNote(lemma);
+ const basic=cleanStrongDef(strongDef);
+ if(note){
+   ctx.innerHTML='<b>Meaning in this verse:</b><br>'+escapeHtml(note.meaning);
+   rend.innerHTML='<b>Possible English renderings:</b><br>'+note.alts.map(escapeHtml).join(' · ');
+ }else{
+   const fallback=(basic||lemma).replace(/^to\s+/i,'');
+   ctx.innerHTML='<b>Meaning in this verse:</b><br>'+escapeHtml(fallback);
+   rend.innerHTML='<b>Possible English renderings:</b><br>'+escapeHtml(fallback);
+ }
+}
+
+
+const TEXTUAL_VARIANTS={
+  5:{22:{type:'wording',ko:'일부 후대 사본에는 “이유 없이”(εἰκῇ)가 추가되어 있습니다. SBLGNT 본문은 이 말을 포함하지 않습니다.',en:'Some later manuscripts add “without cause” (εἰκῇ). SBLGNT does not include it.'}},
+  6:{13:{type:'addition-after-verse',ko:'후대의 많은 사본에는 주기도문 끝에 “왕국과 능력과 영광이 영원히 아버지의 것입니다. 아멘.”이라는 송영이 추가되어 있습니다. SBLGNT 본문에는 없습니다.',en:'Many later manuscripts add the doxology, “For Yours is the kingdom and the power and the glory forever. Amen.” It is absent from the SBLGNT main text.'}}
+};
+function variantFor(ch,v){return TEXTUAL_VARIANTS[ch]?.[v]||null}
+
+function pericopeVariantBlock(ch){return '';}
+function cleanMarks(t){return t.replace(/[⸀⸂⸃]/g,'').trim()}
+function splitLine(line){
+  const p=line.trim().split(/\s+/);
+  if(p.length<7)return null;
+  return {bcv:p[0],pos:p[1],parse:p[2],text:cleanMarks(p[3]),word:p[4],norm:p[5],lemma:p.slice(6).join(' ')};
+}
+async function getMorph(){
+  if(morphRows)return morphRows;
+  const r=await fetch(MORPH_URL);
+  if(!r.ok)throw new Error('MorphGNT load failed');
+  const txt=await r.text();
+  morphRows=txt.split(/\r?\n/).map(splitLine).filter(Boolean);
+  return morphRows;
+}
+function chapterVerse(row){
+  return {ch:+row.bcv.slice(2,4),v:+row.bcv.slice(4,6)};
+}
+function cls(row){
+  const lk=lemmaKey(row.lemma);
+  if(LIFE_LEMMAS.has(row.lemma)||lk==='ζωη'||lk==='ζαω'||lk==='ζωοποιεω')return 'life';
+  if(row.pos==='N-')return 'noun';
+  if(row.pos==='V-')return 'verb';
+  return '';
+}
+function escapeHtml(x){return x.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function wordSpan(row){
+  let c=cls(row);
+  const nk=lemmaKey(row.word);
+  if(/^(ζωη|ζωην|ζωης|ζωη$|ζαω|ζη|ζησει|ζων|ζωντος|ζωοποι)/.test(nk))c='life';
+  const data=`data-word="${escapeHtml(row.word)}" data-lemma="${escapeHtml(row.lemma)}" data-pos="${escapeHtml(row.pos)}" data-parse="${escapeHtml(row.parse)}"`;
+  return `<span class="word ${c}" ${data}>${escapeHtml(row.text)}</span>`;
+}
+
+// Practical Korean reading aid, intentionally approximate.
+// The Mingjo-style font is a display choice; lexical popup provides lemma/POS for study.
+const PRON_OVERRIDES={
+ 'εν':'엔','αρχη':'아르케','ην':'엔','ο':'호','η':'헤','οι':'호이',
+ 'λογος':'로고스','λογον':'로곤','λογου':'로구','λογω':'로고',
+ 'και':'카이','προς':'프로스','τον':'톤','θεον':'테온','θεος':'테오스','θεου':'테우',
+ 'το':'토','του':'투','τω':'토','της':'테스','την':'텐','τα':'타','τους':'투스','των':'톤','τοις':'토이스',
+ 'αυτου':'아우투','αυτον':'아우톤','αυτω':'아우토','αυτος':'아우토스','αυτη':'아우테',
+ 'εγω':'에고','συ':'쉬','υμιν':'휘민','ημιν':'헤민','ημων':'헤몬',
+ 'ιησους':'이에수스','ιησουν':'이에순','ιησου':'이에수','ιωαννης':'이오안네스','ιωαννου':'이오안누',
+ 'χριστος':'크리스토스','χριστου':'크리스투','μεσσιας':'메시아스','μεσσιαν':'메시아ν',
+ 'πνευμα':'프뉴마','πνευματος':'프뉴마토스','πνευματι':'프뉴마티',
+ 'ζωη':'조에','ζωην':'조엔','ζωης':'조에스','ζαω':'자오',
+ 'πατηρ':'파테르','πατρος':'파트로스','πατερα':'파테라',
+ 'υιος':'휘오스','υιου':'휘우','υιον':'휘온',
+ 'αμην':'아멘','γαρ':'가르','δε':'데','ου':'우','ουκ':'우크','ουχ':'우크',
+ 'εις':'에이스','εκ':'에크','εξ':'엑스','δια':'디아','μετα':'메타','περι':'페리','υπερ':'휘페르',
+ 'εστιν':'에스틴','εστι':'에스티','ειμι':'에이미','ει':'에이',
+ 'βιβλος':'비블로스',
+ 'γενεσεως':'게네세오스',
+ 'δαυιδ':'다위드',
+ 'αβρααμ':'아브라암',
+ 'μετανοειτε':'메타노에이테',
+ 'βασιλεια':'바실레이아',
+ 'ουρανων':'우라논',
+ 'βαπτιστης':'밥티스테스',
+ 'διαβολου':'디아볼루',
+ 'σατανα':'사타나',
+ 'ευαγγελιον':'유앙겔리온'
+};
+function stripGreekMarks(x){
+ return x.normalize('NFD').replace(/[\u0300-\u036f]/g,'').normalize('NFC').toLowerCase();
+}
+function hasRoughBreathing(x){
+ return x.normalize('NFD').includes('\u0314');
+}
+const JAMO_I={'g':0,'k':15,'d':3,'t':16,'b':7,'p':17,'s':9,'z':12,'m':6,'n':2,'r':5,'l':5,'h':18,'th':16,'ph':17,'kh':15};
+const JAMO_V={'a':0,'e':5,'i':20,'o':8,'u':13,'y':17};
+const JAMO_F={'n':4,'m':16,'l':8,'g':1,'k':1,'d':7,'t':7,'b':17,'p':17};
+function hangul(on,vow,fin=''){
+ const oi=on?JAMO_I[on]:11, vi=JAMO_V[vow], fi=fin?(JAMO_F[fin]||0):0;
+ if(oi===undefined||vi===undefined)return '';
+ return String.fromCharCode(0xAC00+(oi*21+vi)*28+fi);
+}
+function romanTokens(norm){
+ const reps=[['αι','AI'],['ει','EI'],['οι','OI'],['ου','OU'],['αυ','AU'],['ευ','EU'],['υι','YI'],
+             ['θ','TH'],['φ','PH'],['χ','KH'],['ψ','PS'],['ξ','KS']];
+ let x=norm;
+ for(const [a,b] of reps)x=x.split(a).join(b);
+ const map={'α':'a','ε':'e','η':'e','ι':'i','ο':'o','ω':'o','υ':'y',
+            'β':'b','γ':'g','δ':'d','ζ':'z','κ':'k','λ':'l','μ':'m','ν':'n','π':'p','ρ':'r','σ':'s','ς':'s','τ':'t'};
+ x=[...x].map(c=>map[c]||c).join('');
+ return x.replace(/AI/g,'ai').replace(/EI/g,'ei').replace(/OI/g,'oi').replace(/OU/g,'ou').replace(/AU/g,'au').replace(/EU/g,'eu').replace(/YI/g,'yi')
+         .replace(/TH/g,'th').replace(/PH/g,'ph').replace(/KH/g,'kh').replace(/PS/g,'ps').replace(/KS/g,'ks');
+}
+function englishTranslit(word){
+ const rough=hasRoughBreathing(word);
+ let norm=stripGreekMarks(word).replace(/[^\u0370-\u03ff\u1f00-\u1fff]/g,'');
+ if(!norm)return '';
+ let r=romanTokens(norm)
+   .replace(/kh/g,'ch').replace(/ks/g,'x')
+   .replace(/e/g,'e').replace(/o/g,'o');
+ if(rough && /^[aeiouy]/.test(r)) r='h'+r;
+ return r;
+}
+
+function genericGreekWord(word){
+ const norm=stripGreekMarks(word).replace(/[^\u0370-\u03ff\u1f00-\u1fff]/g,'');
+ if(!norm)return '';
+ if(PRON_OVERRIDES[norm])return PRON_OVERRIDES[norm];
+ let r=romanTokens(norm), rough=hasRoughBreathing(word);
+ // Traditional Bible-study Korean approximation (Erasmian-style), not Modern Greek.
+ // Diphthongs are protected first so αι/ει/οι/ου are not split incorrectly.
+ const units=[];
+ const patterns=['ai','ei','oi','ou','au','eu','yi','th','ph','kh','ps','ks'];
+ for(let i=0;i<r.length;){
+   const q=patterns.find(x=>r.startsWith(x,i));
+   if(q){units.push(q);i+=q.length}else{units.push(r[i]);i++}
+ }
+ const vowelSet=new Set(['a','e','i','o','u','y','ai','ei','oi','ou','au','eu','yi']);
+ const vowelKo={a:'아',e:'에',i:'이',o:'오',u:'우',y:'위',ai:'아이',ei:'에이',oi:'오이',ou:'우',au:'아우',eu:'에우',yi:'위이'};
+ const onsetKo={b:'브',g:'그',d:'드',z:'즈',k:'크',l:'르',m:'므',n:'느',p:'프',r:'르',s:'스',t:'트',h:'흐',th:'트',ph:'프',kh:'크',ps:'프스',ks:'크스'};
+ const onsetSyll={
+   b:{a:'바',e:'베',i:'비',o:'보',u:'부',y:'뷔'},g:{a:'가',e:'게',i:'기',o:'고',u:'구',y:'귀'},
+   d:{a:'다',e:'데',i:'디',o:'도',u:'두',y:'뒤'},z:{a:'자',e:'제',i:'지',o:'조',u:'주',y:'쥐'},
+   k:{a:'카',e:'케',i:'키',o:'코',u:'쿠',y:'퀴'},l:{a:'라',e:'레',i:'리',o:'로',u:'루',y:'뤼'},
+   m:{a:'마',e:'메',i:'미',o:'모',u:'무',y:'뮈'},n:{a:'나',e:'네',i:'니',o:'노',u:'누',y:'뉘'},
+   p:{a:'파',e:'페',i:'피',o:'포',u:'푸',y:'퓌'},r:{a:'라',e:'레',i:'리',o:'로',u:'루',y:'뤼'},
+   s:{a:'사',e:'세',i:'시',o:'소',u:'수',y:'쉬'},t:{a:'타',e:'테',i:'티',o:'토',u:'투',y:'튀'},
+   h:{a:'하',e:'헤',i:'히',o:'호',u:'후',y:'휘'},th:{a:'타',e:'테',i:'티',o:'토',u:'투',y:'튀'},
+   ph:{a:'파',e:'페',i:'피',o:'포',u:'푸',y:'퓌'},kh:{a:'카',e:'케',i:'키',o:'코',u:'쿠',y:'퀴'}
+ };
+ function combine(c,v){
+   if(!c)return vowelKo[v]||'';
+   if(['ai','ei','oi','ou','au','eu','yi'].includes(v)){
+     const first={ai:'a',ei:'e',oi:'o',ou:'u',au:'a',eu:'e',yi:'y'}[v];
+     const tail={ai:'이',ei:'이',oi:'이',ou:'',au:'우',eu:'우',yi:'이'}[v];
+     return (onsetSyll[c]?.[first]||onsetKo[c]||'')+tail;
+   }
+   return onsetSyll[c]?.[v] || (onsetKo[c]||'')+(vowelKo[v]||'');
+ }
+ let out='',i=0;
+ if(rough && vowelSet.has(units[0])) out+='ㅎ';
+ while(i<units.length){
+   if(vowelSet.has(units[i])){ out+=combine('',units[i]); i++; continue; }
+   // Maximal onset: consonant immediately before a vowel belongs to that vowel.
+   if(i+1<units.length && vowelSet.has(units[i+1])){
+     out+=combine(units[i],units[i+1]); i+=2; continue;
+   }
+   // Two-consonant cluster before vowel: pronounce first lightly, second as onset.
+   if(i+2<units.length && !vowelSet.has(units[i+1]) && vowelSet.has(units[i+2])){
+     out+=(onsetKo[units[i]]||''); i++; continue;
+   }
+   // Final consonants in the study pronunciation.
+   const c=units[i];
+   out+=({n:'ㄴ',m:'ㅁ',s:'스',r:'르',l:'르',k:'크',g:'그',t:'트',d:'드',p:'프',b:'브',x:'크스',ks:'크스',ps:'프스'}[c]||onsetKo[c]||'');
+   i++;
+ }
+ // Smooth common final sequences and rough-breathing initial vowels.
+ out=out.replace(/^ㅎ아/,'하').replace(/^ㅎ에/,'헤').replace(/^ㅎ이/,'히').replace(/^ㅎ오/,'호').replace(/^ㅎ우/,'후').replace(/^ㅎ위/,'휘')
+        .replace(/오ㄴ$/,'온').replace(/아ㄴ$/,'안').replace(/에ㄴ$/,'엔').replace(/이ㄴ$/,'인').replace(/우ㄴ$/,'운')
+        .replace(/오ㅁ$/,'옴').replace(/아ㅁ$/,'암').replace(/에ㅁ$/,'엠').replace(/이ㅁ$/,'임').replace(/우ㅁ$/,'움');
+ return out||norm;
+}
+function koApprox(text){
+ return text.split(/\s+/).map(w=>{
+   const lead=(w.match(/^[“‘'"(\[]+/)||[''])[0], tail=(w.match(/[.,·;;:!?ʼ’”')\]]+$/)||[''])[0];
+   const core=w.slice(lead.length,w.length-tail.length);
+   return lead+genericGreekWord(core)+tail;
+ }).join(' ');
+}
+function annotateEnglish(t){
+ let out=t;
+ const keys=Object.keys(ALT).sort((a,b)=>b.length-a.length);
+ for(const key of keys){
+   // 같은 절에서는 같은 핵심 단어의 대체 번역 괄호를 첫 번째 출현에만 표시한다.
+   const re=new RegExp(`\\b${key}\\b`,'i');
+   out=out.replace(re,m=>{
+     const seen=new Set();
+     const alternatives=(ALT[key]||'').split('·').map(x=>x.trim()).filter(Boolean).filter(x=>{
+       const n=x.toLowerCase();
+       if(n===m.toLowerCase() || seen.has(n)) return false;
+       seen.add(n);
+       return true;
+     });
+     return alternatives.length ? `<span class="eng-key">${m}</span> <span class="eng-alt">(${alternatives.join(' · ')})</span>` : `<span class="eng-key">${m}</span>`;
+   });
+ }
+ return out;
+}
+async function getEnglish(ch){
+ const src=OUR_ENGLISH[ch]||{};
+ const out={};
+ for(const [v,t] of Object.entries(src)) out[+v]=annotateEnglish(t);
+ return out;
+}
+function normalizeKrvBook(j){
+ const out={};
+ const put=(ch,v,t)=>{ch=+ch;v=+v;if(ch&&v&&t)(out[ch]??={})[v]=String(t).trim()};
+ const walk=(x,chHint=null)=>{
+  if(Array.isArray(x)){
+   x.forEach((it,i)=>{
+    if(typeof it==='string' && chHint) put(chHint,i+1,it);
+    else walk(it,chHint);
+   }); return;
+  }
+  if(!x||typeof x!=='object')return;
+  const ch=x.chapter??x.ch??x.chapterNumber??chHint;
+  const v=x.verse??x.v??x.verseNumber;
+  const t=x.text??x.content??x.verseText??x.body;
+  if(ch&&v&&typeof t==='string')put(ch,v,t);
+  if(x.verses)walk(x.verses,ch);
+  if(x.chapters)walk(x.chapters,null);
+  for(const [k,val] of Object.entries(x)){
+   if(['chapter','ch','chapterNumber','verse','v','verseNumber','text','content','verseText','body','verses','chapters'].includes(k))continue;
+   if(/^\d+$/.test(k)){
+    if(chHint && typeof val==='string')put(chHint,+k,val);
+    else if(!chHint)walk(val,+k);
+    else walk(val,chHint);
+   }
+  }
+ };
+ walk(j,null); return out;
+}
+async function getKrv(ch){
+ try{
+  if(!krvBookCache){
+   const r=await fetch(KRV_URL); if(!r.ok)throw Error('KRV load failed');
+   krvBookCache=normalizeKrvBook(await r.json());
+  }
+  return krvBookCache[ch]||{};
+ }catch(e){ console.warn(e); return {}; }
+}
+async function getDarby(ch){
+ try{
+  const r=await fetch(`${DARBY_API}Matthew+${ch}?translation=darby`);
+  if(!r.ok)throw Error('Darby load failed');
+  const j=await r.json(),out={};
+  (j.verses||[]).forEach(x=>out[+x.verse]=String(x.text||'').trim().replace(/\s+/g,' '));
+  return out;
+ }catch(e){ console.warn(e); return {}; }
+}
+async function showChapter(ch){
+ if('speechSynthesis' in window){speechSynthesis.cancel();resetPauseButton();}
+ currentChapter=ch;
+ document.getElementById('title').textContent='Matthew '+ch;
+ document.querySelectorAll('.chapter-btn').forEach(b=>b.classList.toggle('active',+b.dataset.ch===ch));
+ const reader=document.getElementById('reader');
+ reader.innerHTML=`<div class="loading">Matthew ${ch}을 불러오는 중…</div>`;
+ try{
+  const [rows,en,krv,darby]=await Promise.all([getMorph(),getEnglish(ch),getKrv(ch),getDarby(ch)]);
+  const by={};
+  rows.forEach(r=>{const cv=chapterVerse(r);if(cv.ch===ch)(by[cv.v]??=[]).push(r)});
+  const max=Math.max(...Object.keys(by).map(Number));
+  let h='';
+  for(let v=1;v<=max;v++){
+    const rr=by[v]||[];
+    const variant=variantFor(ch,v);
+
+    if(rr.length===0){
+      h+=`<article class="verse variant">
+        <div class="num"><span>Matthew ${ch}:${v}</span></div>
+        <div class="variant-label">Textual variant</div>
+        <div class="ko">${escapeHtml(variant?.ko||'SBLGNT/MorphGNT 본문에는 이 절 번호에 해당하는 본문이 없습니다. 본문비평상의 절 번호 공백인지 확인이 필요합니다.')}</div>
+        <div class="en">${escapeHtml(variant?.en||'No main-text verse is present here in SBLGNT/MorphGNT; this verse-number gap should be checked as a textual variant.')}</div>
+      </article>`;
+      continue;
+    }
+
+    const greek=rr.map(wordSpan).join(' ');
+    const plain=rr.map(x=>x.text).join(' ');
+    const ko=KOREAN[ch]?.[v]||'나의 성경 번역 검토 중 — Greek/KRV/Darby 비교 본문을 먼저 제공합니다.';
+    const eng=en[v]||'';
+    h+=`<article class="verse">
+      <div class="num"><span>Matthew ${ch}:${v}</span><button class="verse-speak" onclick="speakEnglish(this)">🔊 English</button></div>
+      <div class="greek">${greek}</div>
+      <div class="pron">(${escapeHtml(koApprox(plain))})</div>
+      <div class="version-label">나의 성경 — 한국어 원문 직역</div>
+      <div class="ko">${escapeHtml(ko)}</div>
+      <div class="version-label">개역한글</div>
+      <div class="krv">${escapeHtml(krv[v]||'개역한글 본문을 불러오지 못했습니다.')}</div>
+      <div class="version-label">My Bible — Greek-based Translation</div>
+      <div class="en">${eng}</div>
+      <div class="version-label">Darby Translation</div>
+      <div class="darby">${escapeHtml(darby[v]||'Darby text could not be loaded.')}</div>
+      ${variant&&variant.type==='addition-after-verse'
+        ? `<div class="variant-note"><span class="variant-label">Textual variant note</span><br>${escapeHtml(variant.ko)}<br><span style="font-family:'Noto Sans',sans-serif">${escapeHtml(variant.en)}</span></div>`
+        : ''}
+    </article>`;
+  }
+  h+=pericopeVariantBlock(ch);
+  reader.innerHTML=h;
+  history.replaceState(null,'',`#matthew${ch}`);
+  window.scrollTo(0,0);
+ }catch(e){
+  reader.innerHTML='<div class="error"><b>본문을 불러오지 못했습니다.</b><br>GitHub Pages에서 인터넷 연결 상태로 다시 열어주세요.</div>';
+ }
+}
+document.addEventListener('click',e=>{
+ const w=e.target.closest('.word'); if(!w)return;
+ popupWord=w;
+ document.getElementById('pgreek').textContent=w.dataset.word;
+ document.getElementById('pko').textContent='Transliteration: '+englishTranslit(w.dataset.word);
+ document.getElementById('penglish').textContent='';
+ const pos=POS_NAMES[w.dataset.pos]||w.dataset.pos;
+ document.getElementById('ppos').innerHTML=`Part of speech: <span class="${w.classList.contains('life')?'pos-life':w.dataset.pos==='N-'?'pos-n':w.dataset.pos==='V-'?'pos-v':''}">${pos}</span>`;
+ document.getElementById('pparse').textContent='Form: '+w.dataset.parse;
+ document.getElementById('plemma').textContent='Lemma: '+w.dataset.lemma;
+ document.getElementById('popup').classList.add('show');
+ fillStrong(w.dataset.lemma);
+});
+function closePopup(){document.getElementById('popup').classList.remove('show')}
+function getVoice(lang,female=true){
+ const vs=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith(lang));
+ const hint=/female|zira|samantha|victoria|ava|aria|jenny|emma|susan|karen|moira|tessa/i;
+ return (female&&vs.find(v=>hint.test(v.name)))||vs[0]||null;
+}
+function resetPauseButton(){
+ const b=document.getElementById('pauseSpeak');
+ if(b)b.textContent='⏸ Pause';
+}
+function toggleSpeechPause(){
+ if(!('speechSynthesis' in window))return;
+ const b=document.getElementById('pauseSpeak');
+ if(speechSynthesis.paused){
+   speechSynthesis.resume();
+   if(b)b.textContent='⏸ Pause';
+ }else if(speechSynthesis.speaking){
+   speechSynthesis.pause();
+   if(b)b.textContent='▶ Resume';
+ }
+}
+function speakEnglish(btn){
+ if(!('speechSynthesis'in window))return;
+ speechSynthesis.cancel();
+ resetPauseButton();
+ const txt=btn.closest('.verse').querySelector('.en').textContent.replace(/^\(|\)$/g,'');
+ const u=new SpeechSynthesisUtterance(txt);u.lang='en-US';u.rate=.88;u.pitch=1.03;
+ const v=getVoice('en');if(v)u.voice=v;speechSynthesis.speak(u);
+}
+function speakGreekWord(){
+ if(!popupWord||!('speechSynthesis'in window))return;
+ speechSynthesis.cancel();
+ resetPauseButton();
+ const spoken=genericGreekWord(popupWord.dataset.word);
+ const u=new SpeechSynthesisUtterance(spoken);u.lang='ko-KR';u.rate=.78;u.pitch=1.0;
+ const v=getVoice('ko',false);if(v)u.voice=v;speechSynthesis.speak(u);
+}
+
+function speakChapter(){
+ if(!('speechSynthesis'in window))return;
+ speechSynthesis.cancel();
+ resetPauseButton();
+ const verses=[...document.querySelectorAll('#reader .verse .en')];
+ const texts=verses.map(x=>x.textContent.replace(/^\(|\)$/g,'').trim()).filter(Boolean);
+ if(!texts.length)return;
+ const btn=document.getElementById('chapterSpeak');
+ let i=0;
+ const voice=getVoice('en');
+ function next(){
+   if(i>=texts.length){btn.textContent='🔊 Read chapter';resetPauseButton();return}
+   const u=new SpeechSynthesisUtterance(texts[i++]);
+   u.lang='en-US';u.rate=.88;u.pitch=1.03;
+   if(voice)u.voice=voice;
+   btn.textContent=`⏹ Reading ${i}/${texts.length}`;
+   u.onend=next;
+   u.onerror=()=>{btn.textContent='🔊 Read chapter';resetPauseButton()};
+   speechSynthesis.speak(u);
+ }
+ next();
+}
+
+if('speechSynthesis'in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+const start=location.hash.match(/john((?:10)|[1-9])/);showChapter(start?+start[1]:1);
+</script>
+</body>
+</html>
