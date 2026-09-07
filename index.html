@@ -740,7 +740,11 @@ async function testAzure(){
     alert('Azure 연결 실패: '+r.status);
     return;
   }
-
+const ch=currentChapter;
+const text=[...document.querySelectorAll(`[id^="ko-${ch}-"]`)]
+  .map(el=>el.textContent.trim())
+  .filter(Boolean)
+  .join(' ');
   const blob=await r.blob();
   const audio=new Audio(URL.createObjectURL(blob));
   audio.play();
