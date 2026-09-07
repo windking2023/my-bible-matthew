@@ -1,4 +1,4 @@
-<!doctype html>
+ㄴ<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -718,8 +718,34 @@ function show(ch){
   setTimeout(()=>loadGreek(ch),0);
   setTimeout(()=>loadComparisons(ch),0);
 }
+async function testAzure(){
+  const key=prompt('Azure Speech Key를 붙여 넣으세요.');
+  if(!key)return;
 
-document.getElementById('readKoChapter').addEventListener('click',()=>readChapter('ko'));
+  const text='마음이 가난한 사람들은 복이 있습니다. 하늘들의 왕국이 그들의 것이기 때문입니다.';
+
+  const ssml=`<speak version="1.0" xml:lang="ko-KR"><voice name="ko-KR-SunHi:DragonHDLatestNeural">${text}</voice></speak>`;
+
+  const r=await fetch('https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1',{
+    method:'POST',
+    headers:{
+      'Ocp-Apim-Subscription-Key':key,
+      'Content-Type':'application/ssml+xml',
+      'X-Microsoft-OutputFormat':'audio-24khz-160kbitrate-mono-mp3'
+    },
+    body:ssml
+  });
+
+  if(!r.ok){
+    alert('Azure 연결 실패: '+r.status);
+    return;
+  }
+
+  const blob=await r.blob();
+  const audio=new Audio(URL.createObjectURL(blob));
+  audio.play();
+}
+document.getElementById('readKoChapter').addEventListener('click',testAzure);
 document.getElementById('readEnChapter').addEventListener('click',()=>readChapter('en'));
 document.getElementById('pauseSpeech').addEventListener('click',togglePause);
 document.getElementById('stopSpeech').addEventListener('click',stopSpeech);
