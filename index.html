@@ -555,7 +555,7 @@ async function getKrv(){
 }
 async function getDarbyChapter(ch){
   if(darbyCache[ch])return darbyCache[ch];
-  const u=DARBY_BASE+'Matthew+'+ch+'?translation=darby';
+ const u=DARBY_BASE+'Matthew+'+ch+'?translation=kjv';
   const j=await withTimeout(u,9000).then(r=>{if(!r.ok)throw new Error('Darby HTTP '+r.status);return r.json();});
   const out={};
   (j.verses||[]).forEach(x=>{if(x.verse!=null)out[Number(x.verse)]=cleanBibleText(x.text)});
