@@ -525,7 +525,7 @@ function normalizeKrv(data){
       return;
     }
     if(typeof x!=='object')return;
-    const ch=x.chapter??x.ch??x.chapter_number??ctxCh;
+    const ch=x.chapter??x.ch??x.chapter_number??ctxCh; 
     const v=x.verse??x.v??x.verse_number;
     const t=x.text??x.content??x.verse_text??x.body;
     if(ch!=null && v!=null && typeof t==='string')putVerse(out,ch,v,t);
@@ -709,7 +709,7 @@ function show(ch){
     <div class="label">나의 성경 — 한국어 원문 직역</div><div class="ko" id="ko-${ch}-${v}">${esc(k[String(v)]||'')}</div>
     <div class="label">개역한글</div><div class="compare krv loadingtext" id="krv-${ch}-${v}">불러오는 중…</div>
     <div class="label">My Bible — Greek-based Translation <button class="audio-btn" type="button" onclick="readVerse(${ch},${v},'en')">🔊</button></div><div class="en" id="en-${ch}-${v}">${esc(e[String(v)]||'')}</div>
-    <div class="label">Darby Translation</div><div class="compare darby loadingtext" id="darby-${ch}-${v}">Loading…</div></section>`;
+    <div class="label"> King James Version</div><div class="compare darby loadingtext" id="darby-${ch}-${v}">Loading…</div></section>`;
   }
   document.getElementById('reader').innerHTML=h;
   document.getElementById('status').textContent=`Matthew ${ch} · ${nums.length}절 · 내장 본문 표시 완료`;
